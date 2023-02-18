@@ -1,0 +1,15 @@
+\_ /redux/
+      \_ actions/
+         \_ users/
+            \_ index.js
+         \_ products/
+            \_ index.js
+      \_ reducers/
+         \_ users/
+            \_ index.js
+         \_ products/
+            \_ index.js
+      \_ store/
+         \_ index.js
+      \_ types/
+         \_ index.js
