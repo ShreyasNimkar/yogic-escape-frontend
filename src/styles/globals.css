@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: wonderQuason;
+  src: url("https://fonts.cdnfonts.com/css/wondar-quason-free");
+}
+@font-face {
+  font-family: josefinSans;
+  src: url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
+}
 
 * {
   overflow-x: hidden;
@@ -27,9 +35,19 @@
   flex-direction: column;
   position: relative;
   width: 70%;
-  height: 70vh;
-  background: white;
+  height: 70%;
 
+  background: transparent;
+  word-break: break-all;
+  /* border: 1px solid rgba(0, 0, 0, 0.274); */
+}
+.phone-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
   word-break: break-all;
   /* border: 1px solid rgba(0, 0, 0, 0.274); */
 }
@@ -38,11 +56,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .tabs {
   padding: 1rem;
   text-align: center;
-  width: 13%;
+  /* width: 13%; */
   cursor: pointer;
   border-bottom: 0.2rem solid rgba(0, 0, 0, 0.274);
   box-sizing: content-box;
@@ -61,6 +80,7 @@
 
 .content-tabs {
   flex-grow: 1;
+  width: 100%;
 }
 .content {
   background: white;
@@ -68,8 +88,16 @@
   width: 100%;
   height: 100%;
   display: none;
+  background: transparent;
 }
 
 .active-content {
-  display: block;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+}
+
+.red-chevron-button:hover Image svg path {
+  stroke: white;
 }

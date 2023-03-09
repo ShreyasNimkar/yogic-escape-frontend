@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import EventsCard from "./EventsCard";
 const HomePageTabs = () => {
   const [toggleState, setToggleState] = useState(1);
 
@@ -7,59 +8,50 @@ const HomePageTabs = () => {
     setToggleState(index);
   };
   return (
-    <div className="container">
-      <div className="bloc-tabs">
+    <div className="bg-transparent phone-container sm:container">
+      <div className="bg-transparent bloc-tabs ">
         <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          className={
+            toggleState === 1
+              ? "tabs active-tabs w-[40%] sm:w-[13%]"
+              : "tabs w-[40%] sm:w-[13%]"
+          }
           onClick={() => toggleTab(1)}
         >
           Events
         </button>
         <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          className={
+            toggleState === 2
+              ? "tabs active-tabs w-[40%] sm:w-[13%]"
+              : "tabs w-[40%] sm:w-[13%]"
+          }
           onClick={() => toggleTab(2)}
         >
           Retreats
         </button>
       </div>
 
-      <div className="content-tabs">
+      <div className="bg-transparent content-tabs">
         <div
-          className={toggleState === 1 ? "content  active-content" : "content"}
+          className={toggleState === 1 ? "content  active-content" : "content "}
         >
-          <h2>Content 1</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
+          <div className=" h-full w-full sm:w-[75%] bg-transparent flex justify-around items-center flex-col">
+            <EventsCard />
+            <EventsCard />
+          </div>
         </div>
 
         <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
+          className={
+            toggleState === 2
+              ? "bg-transparent content  active-content"
+              : "content"
+          }
         >
-          <h2>Content 2</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
-        </div>
-
-        <div
-          className={toggleState === 3 ? "content  active-content" : "content"}
-        >
-          <h2>Content 3</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-            nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-            Accusamus in quia odit aspernatur provident et ad vel distinctio
-            recusandae totam quidem repudiandae omnis veritatis nostrum
-            laboriosam architecto optio rem, dignissimos voluptatum beatae
-            aperiam voluptatem atque. Beatae rerum dolores sunt.
-          </p>
+          <div className="h-full w-full sm:w-[75%] bg-transparent flex justify-around items-center flex-col">
+            <EventsCard />
+          </div>
         </div>
       </div>
     </div>

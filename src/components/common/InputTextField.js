@@ -1,6 +1,6 @@
 const Input = ({ label, name, type = "text", ...rest }) => {
   return (
-    <div className="relative z-0 w-[100%] sm:mb-8">
+    <div className="relative z-0 w-[100%]">
       <input
         {...rest}
         id={name}

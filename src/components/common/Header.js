@@ -39,14 +39,34 @@ const Header = () => {
               alt="nav-icon"
               height={100}
               width={100}
-              className="h-[1.5rem] w-[1.5rem]"
+              className="h-[1.5rem] w-[1.5rem] cursor-pointer"
             />
           </div>
-          <div className="w-[30%] text-xs gap-3 hidden items-center justify-end lg:flex">
-            <div>ABOUT US</div>
-            <div>CLASSES</div>
-            <div>TRAININGS</div>
-            <div>THERAPIES</div>
+          <div className="w-[35%] text-xs gap-3 hidden items-center justify-end lg:flex">
+            <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col">
+              <div className="group-hover:underline">ABOUT US</div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col">
+              <div className="group-hover:underline">CLASSES</div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col">
+              <div className="group-hover:underline">TRAININGS</div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col">
+              <div className="group-hover:underline">THERAPIES</div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
           </div>
           <div className="w-[35%] sm:w-1/5">
             <Image
@@ -57,11 +77,39 @@ const Header = () => {
               className="h-[4.6rem] w-full sm:h-[4.3rem]"
             />
           </div>
-          <div className="w-[30%] text-xs gap-3 hidden items-center justify-start lg:flex">
-            <div>EVENTS</div>
-            <div>RETREATS</div>
-            <div>PODCASTS</div>
-            <div>MORE</div>
+          <div className="w-[35%] text-xs gap-3 hidden items-center justify-start lg:flex">
+            <div className="group relative cursor-pointer  flex justify-around items-start flex-col">
+              <div className="group-hover:underline hover:text-mahogany">
+                EVENTS
+              </div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer  flex justify-around items-start flex-col">
+              <div className="group-hover:underline hover:text-mahogany">
+                RETREATS
+              </div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer  flex justify-around items-start flex-col">
+              <div className="group-hover:underline hover:text-mahogany">
+                PODCASTS
+              </div>
+              <div className="hidden fixed border-t-[0.1rem] border-mahogany group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30">
+                <div>asd</div>
+              </div>
+            </div>
+            <div className="group relative cursor-pointer  flex justify-around items-start flex-col">
+              <div className="group-hover:underline hover:text-mahogany">
+                MORE
+              </div>
+              <div className="hidden fixed group-hover:block w-[10rem] h-[10rem] bg-white rounded-b-md top-[20vh] z-30 border-t-[0.1rem] border-mahogany">
+                <div></div>
+              </div>
+            </div>
           </div>
           <div className="w-[4%] flex items-center justify-around">
             {/* <Image
@@ -74,6 +122,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <div className="hidden lg:block h-[4vh] bg-white w-full"></div>
     </>
   );
 };
