@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const nextConfig = {
   reactStrictMode: true,
-  images: { domains: ["7737-136-233-9-123.in.ngrok.io"] },
+  images: { domains: [`${domain}`] },
 };
 
 module.exports = nextConfig;

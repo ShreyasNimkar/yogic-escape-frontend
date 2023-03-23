@@ -4,6 +4,7 @@ import EventsCard from "./EventsCard";
 import { useEffect } from "react";
 import axios from "axios";
 const HomePageTabs = () => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
   //bizz logic
   const [eventsData, seteventsData] = useState([]);
   const eventsController = async () => {
@@ -12,7 +13,7 @@ const HomePageTabs = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://64e3-2401-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
+    const URL = `https://${domain}/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
 
     const res = await axios.get(URL, { headers });
 
@@ -32,7 +33,7 @@ const HomePageTabs = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://64e3-24ḥ01-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
+    const URL = `https://${domain}/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
     console.log(URL);
     const res = await axios.get(URL, { headers });
 

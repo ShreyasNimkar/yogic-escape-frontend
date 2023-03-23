@@ -5,7 +5,8 @@ import Image from "next/image";
 import postHandler from "@/request-handlers/postHandler";
 import SectionDivider from "../common/SectionDivider";
 const NewsLetter = () => {
-  const URL = `https://64e3-2401-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/mailing-lists`;
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const URL = `https://${domain}/api/mailing-lists`;
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
