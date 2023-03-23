@@ -26,7 +26,7 @@ const NewsLetter = () => {
   };
   return (
     <>
-      <div className=" text-center h-[20vh]  font-semibold flex justify-center items-center flex-col bg-30% bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
+      <div className=" text-center sm:w-[100%] h-[20vh]  font-semibold flex justify-center items-center flex-col bg-30% bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
         SUBSCRIBE TO OUR NEWSLETTER
         <svg
           width="787"
@@ -34,7 +34,7 @@ const NewsLetter = () => {
           viewBox="0 0 787 3"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-1/4"
+          className="w-[80%] sm:w-1/4"
         >
           <line
             x1="1.5"
@@ -42,14 +42,14 @@ const NewsLetter = () => {
             x2="785.5"
             y2="1.5"
             stroke="#9F2420"
-            stroke-width="3"
-            stroke-linecap="round"
+            strokeWidth="3"
+            strokeLinecap="round"
           />
         </svg>
       </div>
-      <div className="h-[80vh] w-full bg-white">
-        <div className="flex justify-around items-center h-4/5 w-full z-10">
-          <div className="h-[80%] w-4/6 bg-paleIvory relative z-10">
+      <div className="h-[60vh] w-full bg-white">
+        <div className="flex justify-around items-center h-[90%] w-full z-10">
+          <div className="h-[100%] w-4/6 bg-paleIvory relative z-10">
             <div className="h-[20%] overflow-hidden">
               <SectionDivider />
             </div>
@@ -107,9 +107,9 @@ const NewsLetter = () => {
                   <path
                     d="M8.24988 16.5L13.7499 11L8.24988 5.5"
                     // stroke="#9F2420"
-                    stroke-width="1.83333"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.83333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </button>

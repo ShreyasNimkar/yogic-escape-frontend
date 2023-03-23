@@ -30,9 +30,7 @@ export default function Home() {
   ];
   return (
     <>
-      {/* <MeetTheTeam /> */}
       <Landing />
-      {/* <Carousel2 /> */}
     </>
   );
 }

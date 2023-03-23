@@ -19,8 +19,8 @@ const BeInTouch = () => {
             x2="785.5"
             y2="1.5"
             stroke="#9F2420"
-            stroke-width="3"
-            stroke-linecap="round"
+            strokeWidth="3"
+            strokeLinecap="round"
           />
         </svg>
       </div>
@@ -52,9 +52,9 @@ const BeInTouch = () => {
               <path
                 d="M8.24988 16.5L13.7499 11L8.24988 5.5"
                 // stroke="#9F2420"
-                stroke-width="1.83333"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.83333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>

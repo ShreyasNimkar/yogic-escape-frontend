@@ -32,9 +32,9 @@ const MindBodySoul = () => {
                 <path
                   d="M8.24988 16.5L13.7499 11L8.24988 5.5"
                   // stroke="#9F2420"
-                  stroke-width="1.83333"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.83333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>

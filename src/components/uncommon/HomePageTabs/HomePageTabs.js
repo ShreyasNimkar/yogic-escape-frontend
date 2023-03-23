@@ -1,7 +1,51 @@
 import React from "react";
 import { useState } from "react";
 import EventsCard from "./EventsCard";
+import { useEffect } from "react";
+import axios from "axios";
 const HomePageTabs = () => {
+  //bizz logic
+  const [eventsData, seteventsData] = useState([]);
+  const eventsController = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+    };
+    const URL = `https://64e3-2401-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
+
+    const res = await axios.get(URL, { headers });
+
+    const members = res.data.data;
+    seteventsData(members);
+  };
+  useEffect(() => {
+    eventsController();
+  }, []);
+
+  //   const eventsData = members ? [...members] : [];
+
+  const [retreatsData, setretreatsData] = useState([]);
+  const retreatsController = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+    };
+    const URL = `https://64e3-24ḥ01-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
+    console.log(URL);
+    const res = await axios.get(URL, { headers });
+
+    const members = res.data.data;
+    setretreatsData(members);
+  };
+  useEffect(() => {
+    eventsController();
+  }, []);
+
+  //   const retreatsData = members ? [...members] : [];
+
+  //app logic
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -37,8 +81,14 @@ const HomePageTabs = () => {
           className={toggleState === 1 ? "content  active-content" : "content "}
         >
           <div className=" h-full w-full sm:w-[75%] bg-transparent flex justify-around items-center flex-col">
-            <EventsCard />
-            <EventsCard />
+            {eventsData &&
+              eventsData.map((el, index) => {
+                return (
+                  <>
+                    <EventsCard key={index} props={el} />
+                  </>
+                );
+              })}
           </div>
         </div>
 
@@ -50,7 +100,14 @@ const HomePageTabs = () => {
           }
         >
           <div className="h-full w-full sm:w-[75%] bg-transparent flex justify-around items-center flex-col">
-            <EventsCard />
+            {retreatsData &&
+              retreatsData.map((el, index) => {
+                return (
+                  <>
+                    <EventsCard key={index} props={el} />
+                  </>
+                );
+              })}
           </div>
         </div>
       </div>

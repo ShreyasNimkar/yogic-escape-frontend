@@ -14,7 +14,8 @@ module.exports = {
         paleIvory: "#F9F4EC",
       },
       fontFamily: {
-        // wonderuason: ["wonder"],
+        wondarQuason: ["wondar-quason-free"],
+        josefinSans: ["josefinSans"],
       },
       backgroundImage: {
         "hero-section-bg": "url('/peopleImageYoga.svg')",

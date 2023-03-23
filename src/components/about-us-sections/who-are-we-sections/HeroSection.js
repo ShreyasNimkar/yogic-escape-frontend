@@ -1,9 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import PostHeroSection from "./PostHeroSection";
+
 const HeroSection = () => {
   return (
-    <>
+    <div>
       <div className="max-h-min bg-slate-400">
         <div className="h-max w-full flex items-center justify-around ">
           <div className="flex flex-col items-center justify-around ">
@@ -11,12 +10,12 @@ const HeroSection = () => {
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
                   <p className="w-full  font-wondarQuason text-center text-white text-5xl sm:text-6xl h-[50%] overflow-y-hidden ">
-                    ESCAPE INTO
+                    Our
                     <br />
-                    <span className="italic font-light font-josefinSans">
+                    {/* <span className="italic font-light font-josefinSans">
                       mindfulness&nbsp;
-                    </span>
-                    WITH YOG
+                    </span> */}
+                    Story
                   </p>
                 </div>
                 <div className="h-[40%] w-full flex justify-center items-center">
@@ -25,7 +24,7 @@ const HeroSection = () => {
                     type="button"
                   >
                     <span className="h-full w-full text-lg flex items-end justify-around pt-[0.25rem]">
-                      BOOK NOW
+                      BOOK CLASS
                     </span>
                     <svg
                       width="22"
@@ -50,18 +49,14 @@ const HeroSection = () => {
             <div className=" bg-paleIvory h-full w-full">
               <div className="text-center font-wondarQuason tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
                 <div className="sm:w-[60%] text-3xl">
-                  Our space is designed to help you{" "}
-                  <span className="text-mahogany bg-red-underline-bg bg-no-repeat bg-bottom">
-                    escape
-                  </span>{" "}
-                  this malignant lifestyle we have accepted as mundane
+                  Yoga is the journey of the self, through the self, to the self
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

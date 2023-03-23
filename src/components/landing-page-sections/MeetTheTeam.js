@@ -20,7 +20,7 @@ const MeetTheTeam = () => {
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
     const URL = `https://64e3-2401-4900-6297-d55b-818e-3a2b-3c5a-961c.in.ngrok.io/api/team-members?populate=*`;
-    console.log(URL);
+
     const res = await axios.get(URL, { headers });
 
     const members = res.data.data;
@@ -29,9 +29,7 @@ const MeetTheTeam = () => {
   useEffect(() => {
     meetTheTeamController();
   }, []);
-  console.log(memberData);
-  //   const memberData = members ? [...members] : [];
-  console.log(memberData.length);
+
   return (
     <>
       <div className="bg-white bg-chakra-team-bg bg-no-repeat bg-50% sm:bg-20% sm:bg-[left_bottom_13rem] bg-[left_bottom_20rem]">
@@ -44,7 +42,7 @@ const MeetTheTeam = () => {
               viewBox="0 0 787 3"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-1/6"
+              className="w-[70%] sm:w-1/6"
             >
               <line
                 x1="1.5"
@@ -52,8 +50,8 @@ const MeetTheTeam = () => {
                 x2="785.5"
                 y2="1.5"
                 stroke="#9F2420"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
               />
             </svg>
           </div>
@@ -376,9 +374,9 @@ const MeetTheTeam = () => {
             <path
               d="M8.24988 16.5L13.7499 11L8.24988 5.5"
               // stroke="#9F2420"
-              stroke-width="1.83333"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.83333"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
