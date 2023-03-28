@@ -23,8 +23,8 @@ const TeamModal = ({
       id="modalcontainer"
       className="fixed inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center"
     >
-      <div className=" w-[90%] h-[95vh] sm:h-[90vh] py-4 sm:py-16 bg-paleIvory flex justify-around items-center">
-        <div className="w-[8%] h-full  flex justify-around items-end flex-col p-1">
+      <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory flex justify-around items-center">
+        <div className="w-[8%] h-full  flex justify-around items-center flex-col p-1">
           <svg
             width="25"
             height="25"
@@ -49,10 +49,10 @@ const TeamModal = ({
         </div>
         <div className="w-[84%] h-full flex flex-col-reverse sm:flex-row">
           <div className="w-full sm:w-[70%] h-[60%] sm:h-full">
-            <p className="py-1 text-xl">{modalData.attributes.Name}</p>
-            <p className="sm:pb-8 text-mahogany italic">
+            <p className="py-1 text-2xl">{modalData.attributes.Name}</p>
+            <p className="sm:pb-4 text-mahogany italic">
               {modalData.attributes.Designation}{" "}
-              <span className="text-xs text-dimGray not-italic">
+              <span className="text-md text-dimGray not-italic">
                 {" "}
                 {modalData.attributes.Experience}
               </span>
@@ -69,7 +69,7 @@ const TeamModal = ({
             />
           </div>
         </div>
-        <div className="w-[8%] h-full flex  justify-around items-start flex-col p-1">
+        <div className="w-[8%] h-full flex  justify-around items-center flex-col p-1">
           <svg
             width="25"
             height="25"

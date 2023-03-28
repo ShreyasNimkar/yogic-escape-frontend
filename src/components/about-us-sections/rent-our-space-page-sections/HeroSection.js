@@ -6,16 +6,15 @@ const HeroSection = () => {
       <div className="max-h-min bg-slate-400">
         <div className="h-max w-full flex items-center justify-around ">
           <div className="flex flex-col items-center justify-around ">
-            <div className="bg-hero-section-bg w-screen h-[70vh] bg-no-repeat bg-cover bg-center bg-fixed">
+            <div className="bg-rentOurSpace-hero-section-bg w-screen h-[70vh] bg-no-repeat bg-cover bg-center bg-fixed">
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
                   <p className="w-full  font-wondarQuason text-center text-white text-5xl sm:text-6xl h-[50%] overflow-y-hidden ">
                     Rent Our
                     <br />
-                    {/* <span className="italic font-light font-josefinSans">
-                      mindfulness&nbsp;
-                    </span> */}
-                    Space
+                    <span className="italic font-light font-josefinSans">
+                      Space
+                    </span>
                   </p>
                 </div>
                 <div className="h-[40%] w-full flex justify-center items-center">

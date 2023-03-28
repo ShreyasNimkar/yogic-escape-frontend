@@ -19,6 +19,9 @@ module.exports = {
       },
       backgroundImage: {
         "hero-section-bg": "url('/peopleImageYoga.svg')",
+        "ourStory-hero-section-bg": "url('/ourStory.png')",
+        "meetTheTeam-hero-section-bg": "url('/meetTheTeamBG.png')",
+        "rentOurSpace-hero-section-bg": "url('/rentSpaceBG.png')",
         "hamsa-bg": "url('/hamsa.svg')",
         "lotus-bg": "url('/lotus.svg')",
         "moon-bg": "url('/moon.svg')",
@@ -43,7 +46,15 @@ module.exports = {
         "90%": "90%",
         "100%": "100%",
       },
-
+      transitionDuration: {
+        1000: "1000ms",
+      },
+      transitionDelay: {
+        1000: "1000ms",
+      },
+      transitionTimingFunction: {
+        "ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
       // fontFamily: {
       //   Josefin: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
       // },

@@ -104,3 +104,14 @@
 .red-chevron-button:hover Image svg path {
   stroke: white;
 }
+
+/* Header Hover Effects */
+.about-us-header:hover .about-us-block {
+  display: flex;
+  position: fixed;
+  background: transparent;
+  z-index: 30;
+  top: 16.7vh;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -57,6 +57,30 @@ const Footer = () => {
               );
             })}
           </div>
+          <div className="w-full h-full  pt-3">
+            <button
+              className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-4 gap-1 py-[0.1rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
+              type="button"
+            >
+              <span className="text-lg pt-[0.25rem]">Subscribe</span>
+              <svg
+                className="block stroke-current"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.24988 16.5L13.7499 11L8.24988 5.5"
+                  // stroke="#9F2420"
+                  strokeWidth="1.83333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       <div className="text-center flex justify-around items-center text-xs text-charcoal h-[10%]">

@@ -5,8 +5,26 @@ const PostHeroSection = () => {
   return (
     <>
       <div className="bg-white w-full ">
-        <div className="h-[10vh] text-2xl w-full flex justify-around items-center">
+        <div className="h-[15vh]  text-2xl w-full flex gap-3 flex-col justify-center items-center">
           HOW WE STARTED
+          <svg
+            width="787"
+            height="3"
+            viewBox="0 0 787 3"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-[80%] sm:w-1/4"
+          >
+            <line
+              x1="1.5"
+              y1="1.5"
+              x2="785.5"
+              y2="1.5"
+              stroke="#9F2420"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
         <div className="h-[50vh] w-[100%] flex justify-around items-center">
           <p className="w-[80%] sm:w-[60%]">
@@ -48,8 +66,26 @@ const PostHeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="h-[20vh] text-2xl w-full flex justify-around items-center">
-        WHO WE ARE
+      <div className="h-[15vh] text-2xl w-full flex justify-center flex-col gap-3 items-center">
+        WHO WE ARE{" "}
+        <svg
+          width="787"
+          height="3"
+          viewBox="0 0 787 3"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[80%] sm:w-1/4"
+        >
+          <line
+            x1="1.5"
+            y1="1.5"
+            x2="785.5"
+            y2="1.5"
+            stroke="#9F2420"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
       <div className="my-10 gap-2 sm:mt-0 sm:h-[40vh] flex flex-col sm:flex-row items-center justify-around sm:justify-evenly  bg-white">
         <div className="h-[20vh] sm:h-full w-[90%] sm:w-[20%] flex items-center justify-around ">
