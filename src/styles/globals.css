@@ -1,17 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: wonderQuason;
-  src: url("https://fonts.cdnfonts.com/css/wondar-quason-free");
-}
-@font-face {
-  font-family: josefinSans;
-  src: url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
-}
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
-
-@import url("https://fonts.cdnfonts.com/css/wondar-quason-free");
 
 * {
   overflow-x: hidden;
@@ -114,4 +103,22 @@
   top: 16.7vh;
   justify-content: space-around;
   align-items: center;
+}
+
+/* dots */
+
+.carousel__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  transition: all;
+  animation-duration: 1000ms;
+  background: #c4c4c4;
+}
+
+.carousel__dot--selected {
+  width: 0.4rem;
+  height: 0.4rem;
+  transition: all;
+  animation-duration: 1000ms;
+  background: #181818;
 }

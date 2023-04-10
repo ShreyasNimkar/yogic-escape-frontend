@@ -29,10 +29,10 @@ const BeInTouch = () => {
           @yogicescape
         </div>
         <div className="w-full h-[70%] sm:h-[60%] flex-col gap-3 sm:gap-0 sm:flex-row flex justify-center items-center py-3">
-          <div className="h-full w-[40%] sm:w-[20%] bg-slate-300">asd</div>
-          <div className="h-full w-[40%] sm:w-[20%] bg-slate-300 ">asd</div>
-          <div className="h-full w-[20%] bg-slate-300 hidden sm:block">asd</div>
-          <div className="h-full w-[20%] bg-slate-300 hidden sm:block">asd</div>
+          <div className="h-full w-[40%] sm:w-[20%] bg-slate-300"></div>
+          <div className="h-full w-[40%] sm:w-[20%] bg-slate-300 "></div>
+          <div className="h-full w-[20%] bg-slate-300 hidden sm:block"></div>
+          <div className="h-full w-[20%] bg-slate-300 hidden sm:block"></div>
         </div>
         <div className="w-full h-[20%] flex justify-around items-center">
           <button

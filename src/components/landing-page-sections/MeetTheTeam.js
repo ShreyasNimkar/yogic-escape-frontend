@@ -90,7 +90,7 @@ const MeetTheTeam = () => {
                     viewBox="0 0 8 14"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="stroke-mahogany"
+                    className="stroke-mahogany hidden"
                   >
                     <path
                       d="M7 1L1 7L7 13"
@@ -101,11 +101,11 @@ const MeetTheTeam = () => {
                     />
                   </svg>
                 </ButtonBack>
-                <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden flex justify-around items-center">
+                <div className="w-full h-full mx-auto p-20 overflow-x-hidden overflow-y-hidden flex justify-around items-center">
                   <Slider>
                     <div
                       id="slider"
-                      className="h-full w-full flex gap-14 md:gap-6 lg:gap-8 items-center justify-start transition ease-out duration-700"
+                      className="h-full w-full flex gap-14 md:gap-6 lg:gap-0 items-center justify-start transition ease-out duration-700"
                     >
                       {memberData &&
                         memberData.map((el, index) => {
@@ -116,14 +116,14 @@ const MeetTheTeam = () => {
                                 key={index + 456789}
                                 className="w-[80%] sm:w-[20%] h-full"
                               >
-                                <div className="flex justify-around items-center flex-col w-full h-full">
+                                <div className="flex justify-around items-center flex-col p-10 w-full h-full">
                                   <Image
                                     src={`https://${domain}${el.attributes.Profile.data.attributes.url}`}
                                     // src={"/chakra.svg"}
                                     alt="Team"
                                     height={10000}
                                     width={10000}
-                                    className="h-[40vh] w-full object-cover"
+                                    className="h-[30vh] w-full object-cover"
                                   />
                                   <div className="text-xl mt-2 text-center">
                                     {el.attributes.Name}
@@ -150,7 +150,7 @@ const MeetTheTeam = () => {
                     height={14}
                     viewBox="0 0 8 14"
                     fill="none"
-                    className="stroke-mahogany"
+                    className="stroke-mahogany hidden"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path

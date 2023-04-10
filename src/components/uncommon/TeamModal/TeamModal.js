@@ -57,7 +57,7 @@ const TeamModal = ({
                 {modalData.attributes.Experience}
               </span>
             </p>
-            <p className="text-xs">{modalData.attributes.About}</p>
+            <p className="text-sm">{modalData.attributes.About}</p>
           </div>
           <div className="w-full sm:w-[30%] h-[40%] sm:h-full overflow-hidden flex justify-around items-center">
             <Image

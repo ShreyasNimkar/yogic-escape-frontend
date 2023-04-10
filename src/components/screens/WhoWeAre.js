@@ -7,7 +7,7 @@ import BeInTouch from "@/components/landing-page-sections/BeInTouch";
 import NewsLetter from "@/components/landing-page-sections/NewsLetter";
 import SectionDivider from "@/components/common/SectionDivider";
 
-const WhoAreWe = () => {
+const WhoWeAre = () => {
   return (
     <>
       {" "}
@@ -22,4 +22,4 @@ const WhoAreWe = () => {
   );
 };
 
-export default WhoAreWe;
+export default WhoWeAre;

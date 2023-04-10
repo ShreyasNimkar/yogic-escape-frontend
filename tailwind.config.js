@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        JosefinSans: ["Josefin Sans"],
+        Quason: ["wondar-quason-free"],
+      },
       colors: {
         paleYellowBiege: "#F9F4EC",
         mahogany: "#9F2420 ",
@@ -13,10 +18,7 @@ module.exports = {
         warmGoldenYellow: "#F6C460",
         paleIvory: "#F9F4EC",
       },
-      fontFamily: {
-        wondarQuason: ["wondar-quason-free"],
-        josefinSans: ["josefinSans"],
-      },
+
       backgroundImage: {
         "hero-section-bg": "url('/peopleImageYoga.svg')",
         "ourStory-hero-section-bg": "url('/ourStory.png')",
@@ -55,9 +57,6 @@ module.exports = {
       transitionTimingFunction: {
         "ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
       },
-      // fontFamily: {
-      //   Josefin: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
-      // },
     },
   },
   plugins: [],

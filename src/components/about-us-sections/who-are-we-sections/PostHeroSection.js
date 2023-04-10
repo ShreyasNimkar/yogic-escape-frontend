@@ -131,7 +131,7 @@ const PostHeroSection = () => {
           foundation of spirituality, mindfulness and calmness, keeping the
           essence of yoga alive.
           <br /> Over the years, Yogic Escape has{" "}
-          <span className="text-mahogany">built a sacred</span>
+          <span className="text-mahogany">built a sacred </span>
           community nurtured with love, respect and yoga. But the journey has
           only begun. Yogic Escape caters to the needs of various clients with
           more than{" "}

@@ -6,14 +6,14 @@ import React from "react";
 import BeInTouch from "@/components/landing-page-sections/BeInTouch";
 import NewsLetter from "@/components/landing-page-sections/NewsLetter";
 import SectionDivider from "@/components/common/SectionDivider";
-import WhoAreWe from "@/components/screens/WhoAreWe";
+import WhoWeAre from "@/components/screens/WhoWeAre";
 
-const whoAreWe = () => {
+const whoWeAre = () => {
   return (
     <>
-      <WhoAreWe />
+      <WhoWeAre />
     </>
   );
 };
 
-export default whoAreWe;
+export default whoWeAre;
