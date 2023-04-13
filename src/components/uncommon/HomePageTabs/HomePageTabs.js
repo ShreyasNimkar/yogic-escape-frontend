@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import axios from "axios";
 const HomePageTabs = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const port = process.env.NEXT_PUBLIC_PORT;
   //bizz logic
   const [eventsData, seteventsData] = useState([]);
   const eventsController = async () => {
@@ -13,7 +14,7 @@ const HomePageTabs = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://${domain}/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
+    const URL = `http://${domain}:${port}/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
 
     const res = await axios.get(URL, { headers });
 
@@ -33,7 +34,7 @@ const HomePageTabs = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://${domain}/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
+    const URL = `http://${domain}:${port}/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
     console.log(URL);
     const res = await axios.get(URL, { headers });
 
@@ -86,7 +87,7 @@ const HomePageTabs = () => {
               eventsData.map((el, index) => {
                 return (
                   <>
-                    <EventsCard key={index} props={el} />
+                    <EventsCard key={el.id} props={el} />
                   </>
                 );
               })}

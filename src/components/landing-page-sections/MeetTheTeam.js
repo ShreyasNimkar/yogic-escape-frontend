@@ -13,6 +13,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 const MeetTheTeam = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const port = process.env.NEXT_PUBLIC_PORT;
   console.log(domain);
   console.log(process.env.NEXT_PUBLIC_DOMAIN);
   const [memberData, setmemberData] = useState([]);
@@ -20,10 +21,9 @@ const MeetTheTeam = () => {
     const headers = {
       "Content-Type": "application/json",
       "ngrok-skip-browser-warning": true,
-      // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://${domain}/api/team-members?populate=*`;
-
+    const URL = `http://${domain}:${port}/api/team-members?populate=*`;
+    console.log(URL);
     const res = await axios.get(URL, { headers });
 
     const members = res.data.data;
@@ -113,12 +113,12 @@ const MeetTheTeam = () => {
                             <>
                               <Slide
                                 index={0}
-                                key={index + 456789}
+                                key={el.id}
                                 className="w-[80%] sm:w-[20%] h-full"
                               >
                                 <div className="flex justify-around items-center flex-col p-10 w-full h-full">
                                   <Image
-                                    src={`https://${domain}${el.attributes.Profile.data.attributes.url}`}
+                                    src={`http://${domain}:${port}${el.attributes.Profile.data.attributes.url}`}
                                     // src={"/chakra.svg"}
                                     alt="Team"
                                     height={10000}
@@ -214,7 +214,7 @@ const MeetTheTeam = () => {
                                 className="w-[80%] sm:w-[20%] h-full"
                               >
                                 <Image
-                                  src={`https://${domain}${el.attributes.Profile.data.attributes.url}`}
+                                  src={`http://${domain}:${port}${el.attributes.Profile.data.attributes.url}`}
                                   // src={"/chakra.svg"}
                                   alt="Team"
                                   height={10000}
@@ -311,7 +311,7 @@ const MeetTheTeam = () => {
                               >
                                 <div className="h-[80%] w-80% flex flex-col items-center justify-around">
                                   <Image
-                                    src={`https://${domain}${el.attributes.Profile.data.attributes.url}`}
+                                    src={`http://${domain}:${port}${el.attributes.Profile.data.attributes.url}`}
                                     // src={"/chakra.svg"}
                                     alt="Team"
                                     height={10000}

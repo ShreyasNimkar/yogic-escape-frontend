@@ -6,7 +6,8 @@ import postHandler from "@/request-handlers/postHandler";
 import SectionDivider from "../common/SectionDivider";
 const NewsLetter = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
-  const URL = `https://${domain}/api/mailing-lists`;
+  const port = process.env.NEXT_PUBLIC_PORT;
+  const URL = `http://${domain}:${port}/api/mailing-lists`;
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");

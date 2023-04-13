@@ -51,7 +51,7 @@ const Testimonials = () => {
         <CarouselProvider
           className="h-[100%] w-full justify-around items-center"
           naturalSlideWidth={100}
-          naturalSlideHeight={50}
+          naturalSlideHeight={75}
           totalSlides={quotes.length}
           infinite={true}
           currentSlide={activeIndex}

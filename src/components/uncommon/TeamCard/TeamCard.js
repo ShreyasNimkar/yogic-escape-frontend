@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
-
+  const port = process.env.NEXT_PUBLIC_PORT;
   return (
     <>
       <div
@@ -14,7 +14,7 @@ const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
         className="w-[80%] sm:w-[20%] h-full cursor-pointer"
       >
         <Image
-          src={`https://${domain}${el.attributes.Profile.data.attributes.url}`}
+          src={`http://${domain}:${port}${el.attributes.Profile.data.attributes.url}`}
           // src={"/chakra.svg"}
           alt="Team"
           height={10000}

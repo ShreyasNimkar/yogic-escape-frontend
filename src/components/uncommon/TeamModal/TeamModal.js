@@ -10,6 +10,7 @@ const TeamModal = ({
   memberData,
 }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const port = process.env.NEXT_PUBLIC_PORT;
   console.log(memberData);
   console.log(modalData);
 
@@ -61,7 +62,7 @@ const TeamModal = ({
           </div>
           <div className="w-full sm:w-[30%] h-[40%] sm:h-full overflow-hidden flex justify-around items-center">
             <Image
-              src={`https://${domain}${modalData.attributes.Profile.data.attributes.url}`}
+              src={`http://${domain}:${port}${modalData.attributes.Profile.data.attributes.url}`}
               alt="Team"
               height={10000}
               width={10000}

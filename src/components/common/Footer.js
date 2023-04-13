@@ -16,7 +16,7 @@ const Footer = () => {
   };
   return (
     <>
-      <div className="h-[40vh] bg-paleIvory">
+      <div className="h-[25vh] sm:h-[40vh] bg-paleIvory">
         <div className="h-[90%] w-full flex justify-around items-center">
           <div className="h-full w-1/3  p-[0.2rem] sm:p-[2rem]">
             <div className="text-mahogany mb-3">GET IN TOUCH</div>
@@ -69,12 +69,12 @@ const Footer = () => {
                 onClick={(modalId) => {
                   setModalVisible(modalId);
                 }}
-                className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-4 gap-1 py-[0.1rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs px-2 sm:px-4 gap-1 py-[0.1rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
                 type="button"
               >
-                <span className="text-lg">Subscribe</span>
+                <span className="text-lg">SUBSCRIBE</span>
                 <svg
-                  className="block stroke-current"
+                  className=" stroke-current hidden sm:block"
                   width="22"
                   height="22"
                   viewBox="0 0 22 22"
