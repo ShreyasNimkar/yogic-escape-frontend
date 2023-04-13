@@ -43,12 +43,12 @@ const NewsLetterModal = ({
       <div
         onClick={handleOnClose}
         id="modalcontainer"
-        className="fixed inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center"
+        className="fixed z-50 inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center"
       >
         <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory ">
           <div className="h-[100%] sm:h-[100%] w-full bg-white">
-            <div className="flex justify-around items-center h-[90%] w-full z-10">
-              <div className="h-[100%] w-4/6 bg-paleIvory relative z-10">
+            <div className="flex justify-around items-center h-[90%] w-full z-50">
+              <div className="h-[100%] w-4/6 bg-paleIvory relative z-50">
                 <div className="h-[20%] overflow-hidden">
                   <SectionDivider />
                 </div>
@@ -94,7 +94,7 @@ const NewsLetterModal = ({
                     type="button"
                     onClick={submitHandler}
                   >
-                    <span className="text-lg">Subscribe</span>
+                    <span className="text-lg pt-[0.25rem]">Subscribe</span>
                     <svg
                       className="stroke-current"
                       width="22"
