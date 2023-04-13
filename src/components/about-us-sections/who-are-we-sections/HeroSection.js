@@ -10,7 +10,7 @@ const HeroSection = () => {
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
                   <p className="w-full text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
-                    <span className="font-Quason font-thin">Our</span>
+                    <span className="font-Quasonnnn font-thin">Our</span>
                     <br />
                     <span className="italic font-light ">STORY</span>
                   </p>
@@ -44,8 +44,8 @@ const HeroSection = () => {
               </div>
             </div>
             <div className=" bg-paleIvory h-full w-full">
-              <div className="text-center font-wondarQuason tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
-                <div className="sm:w-[60%] text-3xl">
+              <div className="text-center  tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
+                <div className="sm:w-[60%] text-3xl font-Quasonnnn">
                   Yoga is the journey of the self, through the self, to the self
                 </div>
               </div>

@@ -59,8 +59,8 @@ const PostHeroSection = () => {
       </div>
       <SectionDivider />
       <div className=" bg-paleIvory h-full w-full">
-        <div className="text-center font-wondarQuason tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
-          <div className="sm:w-[60%] text-3xl">
+        <div className="text-center  tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
+          <div className="sm:w-[60%] text-3xl font-Quasonnnn">
             Yogic Escape is a space designed to embrace all aspects of life,
             Mental (mind), physical (body) and spiritual (soul).
           </div>

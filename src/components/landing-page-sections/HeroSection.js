@@ -4,17 +4,19 @@ import PostHeroSection from "./PostHeroSection";
 const HeroSection = () => {
   return (
     <>
-      <div className="max-h-min bg-slate-400 ">
+      <div className="max-h-min  bg-slate-400 ">
         <div className="h-max w-full flex items-center justify-around ">
           <div className="flex flex-col items-center justify-around ">
             <div className="bg-hero-section-bg w-screen h-[70vh] bg-no-repeat bg-cover bg-center bg-fixed">
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
-                  <p className="w-full font-JosefinSans font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
-                    ESCAPE INTO a
+                  <p className="w-full  font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
+                    <span className="font-Quasonnnn">ESCAPE INTO a</span>
                     <br />
-                    <span className="">mindfulness&nbsp;</span>
-                    WITH YOG
+                    <span className="italic  font-light">
+                      mindfulness&nbsp;
+                    </span>
+                    <span className="font-Quasonnnn">WITH YOG</span>
                   </p>
                 </div>
                 <div className="h-[40%] w-full flex justify-center items-center">
@@ -46,8 +48,8 @@ const HeroSection = () => {
               </div>
             </div>
             <div className=" bg-paleIvory h-full w-full">
-              <div className="text-center font-wonderQuason tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
-                <div className="sm:w-[60%] text-3xl">
+              <div className="text-center  tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
+                <div className="sm:w-[60%] font-Quasonnnn text-3xl">
                   Our space is designed to help you{" "}
                   <span className="text-mahogany bg-red-underline-bg bg-no-repeat bg-bottom">
                     escape

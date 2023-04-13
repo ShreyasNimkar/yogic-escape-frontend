@@ -6,8 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        JosefinSans: ["Josefin Sans"],
-        Quason: ["wondar-quason-free"],
+        Quasonnnn: ["Quason"],
       },
       colors: {
         paleYellowBiege: "#F9F4EC",

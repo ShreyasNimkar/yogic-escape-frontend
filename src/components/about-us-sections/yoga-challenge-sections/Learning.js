@@ -25,7 +25,7 @@ const Learning = () => {
           />
         </svg>
       </div>
-      <div className="text-center bg-paleIvory sm:w-[100%] h-[15vh]  font-semibold flex justify-center items-center flex-col gap-2 tracking-widest ">
+      <div className="text-center bg-paleIvory sm:w-[100%] h-[15vh]  font-semibold flex justify-center items-center flex-col gap-4 text-sm text-dimGray ">
         The challenges are designed to flow from one class to the next in a way
         that feels good in your body . <br />
         <span className="tracking-normal text-mahogany">

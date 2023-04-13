@@ -79,7 +79,7 @@ const Testimonials = () => {
               {quotes.map((quote, index) => (
                 <Slide index={0} key={index + 23421331}>
                   <div className="h-[200%] sm:h-full w-full text-center">
-                    <div className="w-full h-[50%] sm:h-[30%] text-2xl">
+                    <div className="w-full h-[50%] sm:h-[30%] text-2xl font-Quasonnnn">
                       <p>{quote}</p>
                     </div>
                     <div className="w-full h-[50%] sm:h-[30%] text-mahogany">

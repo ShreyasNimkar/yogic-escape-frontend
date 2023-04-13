@@ -25,8 +25,8 @@ const Learning = () => {
           />
         </svg>
       </div>
-      <div className="w-full h-[80vh] px-20 pb-16 flex bg-paleIvory justify-center gap-10 items-center">
-        <div className="h-[100%] w-[25%] flex justify-end  items-center flex-col z-1 relative">
+      <div className="w-full h-[170vh] sm:h-[80vh] px-20 pb-16 flex flex-col sm:flex-row bg-paleIvory justify-center gap-10 items-center">
+        <div className="h-[100%]  sm:w-[25%] flex justify-end  items-center flex-col z-1 relative">
           {/*  */}
           <div className="w-[100%] h-[90%] relative z-2 bg-white border-2 border-mahogany">
             <div className="h-full  w-full">
@@ -145,7 +145,7 @@ const Learning = () => {
             className="h-[5rem] absolute -top-[0] w-full z-20"
           />
         </div>
-        <div className="h-[100%] w-[25%] flex justify-end  items-center flex-col z-1 relative">
+        <div className="h-[100%] sm:w-[25%] flex justify-end  items-center flex-col z-1 relative">
           <div className="w-[100%] h-[90%] relative z-2 bg-white border-2 border-mahogany">
             <div className="h-full  w-full">
               <div className="w-full h-[20%] text-lg text-center flex justify-around bg-white items-center">
@@ -263,7 +263,7 @@ const Learning = () => {
             className="h-[5rem] absolute -top-[0] w-full z-20"
           />
         </div>
-        <div className="h-[100%] w-[25%] flex justify-end  items-center flex-col z-1 relative">
+        <div className="h-[100%] sm:w-[25%] flex justify-end  items-center flex-col z-1 relative">
           <div className="w-[100%] h-[90%] relative z-2 bg-white border-2 border-mahogany">
             <div className="h-full  w-full">
               <div className="w-full h-[20%] text-lg text-center flex justify-around bg-white items-center">

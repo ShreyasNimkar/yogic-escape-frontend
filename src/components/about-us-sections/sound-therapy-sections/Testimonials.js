@@ -79,7 +79,7 @@ const Testimonials = () => {
               {quotes.map((quote, index) => (
                 <Slide index={index} key={index}>
                   <div className="h-full   w-full text-center">
-                    <div className="w-full flex justify-around items-center h-[50%] text-2xl">
+                    <div className="w-full font-Quasonnnn flex justify-around items-center h-[50%] text-2xl">
                       {quote}
                     </div>
                     <div className="w-full h-[50%] text-mahogany">

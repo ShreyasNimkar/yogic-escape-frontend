@@ -113,7 +113,7 @@ const EnrollmentForm = () => {
           />
         </svg>
       </div>
-      <div className="h-[25vh] pt-3 bg-paleIvory">
+      <div className="h-[25vh] px-6 sm:px-0 pt-3 bg-paleIvory">
         <div className="w-full text-lg text-center text-mahogany pb-3">
           For any questions or queries please{" "}
           <span className="underline">Email</span>&nbsp; us or{" "}

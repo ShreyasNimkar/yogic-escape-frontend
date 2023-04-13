@@ -10,8 +10,8 @@ const HeroSection = () => {
             <div className="bg-hero-section-bg w-screen h-[70vh] bg-no-repeat bg-cover bg-center bg-fixed">
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
-                  <p className="w-full font-wonderQuason font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
-                    <span className="font-Quason">Sound Therapy</span>
+                  <p className="w-full  font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
+                    <span className="font-Quasonnnn">Sound Therapy</span>
                     <br />
                     <span className="italic">TRAINING</span>
                   </p>
@@ -45,8 +45,8 @@ const HeroSection = () => {
               </div>
             </div>
             <div className=" bg-paleIvory h-full w-full">
-              <div className="text-center font-wonderQuason tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
-                <div className="sm:w-[60%] text-xl">
+              <div className="text-center  tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
+                <div className="sm:w-[60%] text-xl font-Quasonnnn">
                   Sound therapy is a process to heal the mind and body through
                   music, sounds, frequencies, and vibrations. Sound therapy
                   considers the emotional, mental, psychological, and spiritual
