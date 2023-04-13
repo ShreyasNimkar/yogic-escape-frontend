@@ -20,7 +20,7 @@ const MindBodySoul = () => {
               className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
             >
-              <span className="text-base pt-[0.25rem]">Book</span>
+              <span className="text-base">Book</span>
               <svg
                 className="stroke-current"
                 width="22"

@@ -47,9 +47,9 @@ const Testimonials = () => {
           />
         </svg>
       </div>
-      <div className="h-[60vh]">
+      <div className="h-[40vh] sm:h-[60vh]">
         <CarouselProvider
-          className="h-full w-full justify-around items-center"
+          className="h-[100%] w-full justify-around items-center"
           naturalSlideWidth={100}
           naturalSlideHeight={50}
           totalSlides={quotes.length}
@@ -57,8 +57,8 @@ const Testimonials = () => {
           currentSlide={activeIndex}
           //   onSlideChange={handleSlideChange}
         >
-          <div className="h-[80%] flex justify-around items-center">
-            <ButtonBack>
+          <div className="h-[90%] flex justify-around items-center">
+            <ButtonBack className="h-full">
               <svg
                 width="25"
                 height="25"
@@ -75,21 +75,21 @@ const Testimonials = () => {
                 ></path>
               </svg>
             </ButtonBack>
-            <Slider className="h-[100%] w-[80%]">
+            <Slider className="h-[100%] w-[80%] ">
               {quotes.map((quote, index) => (
-                <Slide index={index} key={index}>
-                  <div className="h-full   w-full text-center">
-                    <div className="w-full flex justify-around items-center h-[50%] text-2xl">
-                      {quote}
+                <Slide index={0} key={index + 23421331}>
+                  <div className="h-[200%] sm:h-full w-full text-center">
+                    <div className="w-full h-[50%] sm:h-[30%] text-2xl">
+                      <p>{quote}</p>
                     </div>
-                    <div className="w-full h-[50%] text-mahogany">
+                    <div className="w-full h-[50%] sm:h-[30%] text-mahogany">
                       ~Joulie, A doctor
                     </div>
                   </div>
                 </Slide>
               ))}
             </Slider>
-            <ButtonNext>
+            <ButtonNext className="h-full">
               <svg
                 width="25"
                 height="25"

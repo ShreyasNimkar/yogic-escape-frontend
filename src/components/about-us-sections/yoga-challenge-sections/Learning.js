@@ -32,8 +32,8 @@ const Learning = () => {
           JOIN US AT THE STUDIO FOR
         </span>
       </div>
-      <div className="w-full h-[90vh] px-20 pb-16 flex bg-paleIvory justify-center gap-10 items-center">
-        <div className="h-[100%] w-[25%] flex justify-end  items-center flex-col z-1 relative">
+      <div className="pt-4 sm:pt-0 w-full h-[60vh] sm:h-[90vh] px-20 pb-16 flex bg-paleIvory justify-center gap-10 items-center">
+        <div className="h-[100%] w-[100%] sm:w-[25%] flex justify-end  items-center flex-col z-1 relative">
           <div className="w-[100%] h-[90%] relative z-2 bg-white border-2 border-mahogany">
             <div className="h-full  w-full">
               <div className="w-full text-dimGray flex justify-end  items-center flex-col h-[30%] text-lg text-center tracking-widest  bg-white ">

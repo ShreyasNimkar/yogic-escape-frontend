@@ -10,7 +10,7 @@ const HeroSection = () => {
             <div className="bg-hero-section-bg w-screen h-[70vh] bg-no-repeat bg-cover bg-center bg-fixed">
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
-                  <p className="w-full font-JosefinSans font-thin text-center text-white text-5xl sm:text-6xl h-[50%] overflow-y-hidden ">
+                  <p className="w-full font-JosefinSans font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
                     ESCAPE INTO a
                     <br />
                     <span className="">mindfulness&nbsp;</span>

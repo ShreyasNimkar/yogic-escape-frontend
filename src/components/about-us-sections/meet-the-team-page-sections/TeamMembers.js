@@ -17,6 +17,7 @@ const TeamMembers = () => {
     const res = await axios.get(URL, { headers });
     const members = res.data.data;
     setmemberData(members);
+    console.log(members);
   };
   useEffect(() => {
     meetTheTeamController();

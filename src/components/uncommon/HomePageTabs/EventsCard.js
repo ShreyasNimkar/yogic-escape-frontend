@@ -38,7 +38,7 @@ const EventsCard = (props) => {
               className="flex justify-between items-center bg-transparent border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs px-[0.5rem] gap-[0.25] py-[0.2rem] sm:py-[0.3rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
             >
-              <span className="text-sm pt-[0.25rem]">Enroll</span>
+              <span className="text-sm">Enroll</span>
               <svg
                 className="block stroke-current"
                 width="22"

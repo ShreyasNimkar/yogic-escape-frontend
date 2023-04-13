@@ -40,7 +40,7 @@ const BeInTouch = () => {
             type="button"
             // onClick={submitHandler}
           >
-            <span className="text-lg pt-[0.25rem]">Follow</span>
+            <span className="text-lg">Follow</span>
             <svg
               className="stroke-current"
               width="22"

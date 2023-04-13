@@ -119,13 +119,13 @@ const EnrollmentForm = () => {
           <span className="underline">Email</span>&nbsp; us or{" "}
           <span className="underline">call us.</span>
         </div>
-        <div className="text-center text-xs tracking-[0.3em] w-full">
+        <div className="text-center text-xs tracking-[0.2em] w-full">
           Upon receipt of your registration email, we will confirm your
           participation.
           <br /> The registration is binding once the payment is done.
         </div>
       </div>
-      <div className="h-[3vh] bg-white"></div>
+      <div className="h-[2vh] bg-white"></div>
     </>
   );
 };

@@ -96,7 +96,7 @@ const NewsLetter = () => {
                 type="button"
                 onClick={submitHandler}
               >
-                <span className="text-lg pt-[0.25rem]">Subscribe</span>
+                <span className="text-lg">Subscribe</span>
                 <svg
                   className="stroke-current"
                   width="22"
