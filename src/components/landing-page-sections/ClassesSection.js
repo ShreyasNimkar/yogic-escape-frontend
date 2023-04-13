@@ -23,7 +23,7 @@ const ClassesSection = () => {
                 className="flex  justify-around items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
                 type="button"
               >
-                <span className="text-base">Book</span>
+                <span className="text-base pt-[0.25rem]">Book</span>
                 <svg
                   className="stroke-current"
                   width="22"
@@ -69,7 +69,7 @@ const ClassesSection = () => {
               className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs px-[0.5rem] gap-[0.25] py-[0.3rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
             >
-              <span className="text-sm">BOOK @ 500</span>&nbsp;
+              <span className="text-sm pt-[0.25rem]">BOOK @ 500</span>&nbsp;
               <svg
                 className="block stroke-current"
                 width="22"
@@ -103,7 +103,7 @@ const ClassesSection = () => {
               className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs px-[0.5rem] gap-[0.25] py-[0.3rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
             >
-              <span className="text-sm">BOOK @ 500</span>&nbsp;
+              <span className="text-sm pt-[0.25rem]">BOOK @ 500</span>&nbsp;
               <svg
                 className="stroke-current"
                 width="22"
@@ -137,7 +137,7 @@ const ClassesSection = () => {
               className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs px-[0.5rem] gap-[0.25] py-[0.3rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
             >
-              <span className="text-sm">BOOK @ 500</span>&nbsp;
+              <span className="text-sm pt-[0.25rem]">BOOK @ 500</span>&nbsp;
               <Image
                 src={"chevron-right.svg"}
                 alt="chevron-right"

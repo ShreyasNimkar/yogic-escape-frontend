@@ -49,7 +49,7 @@ const HeroSection = () => {
             </div>
             <div className=" bg-paleIvory h-full w-full">
               <div className="text-center  tracking-[0.2rem] h-[40vh] w-full bg-chakra-bg bg-center bg-no-repeat bg-contain flex items-center justify-around my-5 ">
-                <div className="sm:w-[60%] font-Quasonnnn text-3xl">
+                <div className="sm:w-[60%] font-Quasonnnn  text-3xl">
                   Our space is designed to help you{" "}
                   <span className="text-mahogany bg-red-underline-bg bg-no-repeat bg-bottom">
                     escape

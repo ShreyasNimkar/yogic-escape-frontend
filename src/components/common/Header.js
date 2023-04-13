@@ -22,15 +22,7 @@ const Header = () => {
               className="h-[1.5rem] w-full"
             />
           </div>
-          <div className="w-[4%] hidden justify-around items-center gap-1 lg:flex">
-            <Image
-              src={`shopping-bag.svg`}
-              alt="nav-icon"
-              height={100}
-              width={100}
-              className="h-[1.5rem] w-[1.5rem] cursor-pointer hidden"
-            />
-          </div>
+
           <div className="w-[35%]  text-xs gap-3 hidden items-center justify-end lg:flex">
             {/*  */}
             <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col w-[6vw]">
@@ -152,15 +144,15 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="w-[35%] sm:w-1/5">
+          <div className="flex justify-around items-center w-[35%] sm:w-1/5">
             <Link href={"/"}>
               <Image
                 href={"/"}
-                src="logo.svg"
+                src="/logo.png"
                 alt="logo"
                 height={10000}
                 width={10000}
-                className="h-[4.6rem] w-full sm:h-[4.3rem] cursor-pointer"
+                className="h-full w-auto sm:h-[4.3rem] cursor-pointer"
               />
             </Link>
           </div>
@@ -331,7 +323,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="w-[4%] flex items-center justify-around"></div>
+          <div className="w-[10%] flex lg:hidden items-center justify-around"></div>
         </div>
       </div>
       <div className="hidden lg:block h-[2vh] bg-white w-full"></div>
