@@ -14,7 +14,7 @@ const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
         className="w-[80%] sm:w-[20%] h-full cursor-pointer"
       >
         <Image
-          src={`http://${domain}:${port}${el.attributes.Profile.data.attributes.url}`}
+          src={`http://${domain}${el.attributes.Profile.data.attributes.url}`}
           // src={"/chakra.svg"}
           alt="Team"
           height={10000}
