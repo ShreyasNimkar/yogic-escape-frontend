@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
-  const port = process.env.NEXT_PUBLIC_PORT;
+
   return (
     <>
       <div

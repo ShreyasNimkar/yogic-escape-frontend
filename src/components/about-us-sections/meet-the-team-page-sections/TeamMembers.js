@@ -5,7 +5,7 @@ import TeamModal from "@/components/uncommon/TeamModal/TeamModal";
 import axios from "axios";
 const TeamMembers = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
-  const port = process.env.NEXT_PUBLIC_PORT;
+
   const [memberData, setmemberData] = useState([]);
   // console.log(memberData);
   const meetTheTeamController = async () => {
@@ -14,7 +14,7 @@ const TeamMembers = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `http://${domain}:${port}/api/team-members?populate=*`;
+    const URL = `https://${domain}/api/team-members?populate=*`;
     const res = await axios.get(URL, { headers });
     const members = res.data.data;
     setmemberData(members);

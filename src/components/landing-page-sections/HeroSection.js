@@ -11,7 +11,7 @@ const HeroSection = () => {
               <div className="w-full h-full bg-[#250706] bg-opacity-50">
                 <div className="h-[60%] w-full flex justify-around items-end text-center">
                   <p className="w-full  font-thin text-center text-white text-5xl sm:text-6xl h-[55%] overflow-y-hidden ">
-                    <span className="font-Quasonnnn">ESCAPE INTO a</span>
+                    <span className="font-Quasonnnn">ESCAPE INTO</span>
                     <br />
                     <span className="italic  font-light">
                       mindfulness&nbsp;

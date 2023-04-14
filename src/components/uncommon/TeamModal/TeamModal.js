@@ -10,7 +10,7 @@ const TeamModal = ({
   memberData,
 }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
-  const port = process.env.NEXT_PUBLIC_PORT;
+
   console.log(memberData);
   console.log(modalData);
 

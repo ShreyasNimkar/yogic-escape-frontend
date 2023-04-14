@@ -11,7 +11,7 @@ const nextConfig = {
     //     pathname: "uploads",
     //   },
     // ],
-    domains: ["64.227.136.208"],
+    domains: [`${domain}`],
   },
 };
 
