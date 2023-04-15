@@ -118,7 +118,7 @@ const MassagesAndTherapiesTestimonials = () => {
           </div>
         </CarouselProvider>
       </div>
-      <div className="flex justify-around items-center h-[5vh] bg-white">
+      <div className="flex justify-around items-end pb-3 h-[10vh] bg-white  ">
         <svg
           width="25"
           height="25"

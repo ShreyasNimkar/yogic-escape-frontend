@@ -1,9 +1,9 @@
 import React from "react";
 import MoreForYouCard from "../uncommon/MassageAndTherapiesCards/MoreForYouCard";
-
-const TherapiesMoreForYou = () => {
+const MassagesMoreForYou = () => {
   return (
     <>
+      {" "}
       <div className="h-[10vh] text-center flex justify-center bg-paleIvory flex-col  items-center text-base">
         MORE FOR YOU
         <svg
@@ -71,4 +71,4 @@ const TherapiesMoreForYou = () => {
   );
 };
 
-export default TherapiesMoreForYou;
+export default MassagesMoreForYou;
