@@ -143,6 +143,47 @@ const Header = () => {
                 </div>
               </div>
             </div>
+            {/*  */}
+            <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col w-[6vw]">
+              <div className="group-hover:underline w-full text-center">
+                <Link
+                  href={"/massages-and-therapies"}
+                  className="cursor-pointer hover:text-mahogany"
+                >
+                  SERVICES
+                </Link>
+              </div>
+              <div className="hidden cursor-default opacity-0 fixed group-hover:flex group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 ease-out bg-transparent rounded-b-md top-[9.2vh] -flex-col-x-12 z-30  justify-around items-center flex-col w-[15vw] -translate-x-[4.5vw]  ">
+                <div className="bg-transparent  h-[5.6vh] w-full cursor-default"></div>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 15 2"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="cursor-default"
+                >
+                  <path d="M4 9H11L7.5 4.5L4 9Z" fill="currentColor"></path>
+                </svg>
+
+                <div className="bg-white cursor-default border-t-[0.1rem] border-mahogany h-full w-full ">
+                  <div className="w-full text-black h-full gap-3 flex justify-around items-center flex-col  py-3">
+                    <Link
+                      href={"/massages"}
+                      className="cursor-pointer hover:text-mahogany"
+                    >
+                      MASSAGES
+                    </Link>
+                    <Link
+                      href={"/therapies"}
+                      className="cursor-pointer hover:text-mahogany"
+                    >
+                      THERAPIES
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="flex justify-around items-center w-[35%] sm:w-1/5">
             <Link href={"/"}>
