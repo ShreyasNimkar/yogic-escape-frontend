@@ -96,8 +96,8 @@ const PaymentTab = () => {
         </div>
         {/* here */}
         <div className="w-full h-[75%]">
-          {/* <PaymentLogin /> */}
-          <CalendarDiv />
+          <PaymentLogin />
+          {/* <CalendarDiv /> */}
           {/* <BookingConfirm /> */}
         </div>
       </div>

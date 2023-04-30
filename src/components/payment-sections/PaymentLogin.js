@@ -1,30 +1,62 @@
 import React from "react";
 import InputTextField from "../common/InputTextField";
+import postHandler from "@/request-handlers/postHandler";
+import { useState } from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+
 const PaymentLogin = () => {
+  const router = useRouter();
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const URL = `https://${domain}/api/auth/local`;
+  const submitHandler = async () => {
+    const formdata = new FormData();
+    formdata.append("identifier", identifier);
+    formdata.append("password", password);
+
+    const res = await postHandler(URL, formdata, false);
+    console.log(res);
+    if (res.status === 1) {
+      // console.log(res.data);
+      Cookies.set("jwt", res.data.jwt);
+    }
+  };
+  const signUpHandler = () => {
+    router.push("/register");
+  };
   return (
     <>
       <div className="w-full h-full">
         <div className="text-mahogany text-center text-lg font-semibold h-[10%]">
-          Guest Login in to Yogic Escape
+          Login in to Yogic Escape
         </div>
         <div className="h-[90%] flex justify-around items-center">
           <div className="w-[49%] h-full flex justify-around items-center">
             <div className="w-[50%] h-full ">
-              <div className="h-[70%] w-full flex justify-center items-center flex-col">
-                <p className="w-full">FULL NAME</p>
-                <InputTextField label="ex: Neha" name="" type="text" />
+              <div className="h-[65%] w-full flex justify-center gap-1 items-center flex-col">
+                <p className="w-full">USERNAME / EMAIL</p>
+                <InputTextField
+                  label="ex: Neha"
+                  name="identifier"
+                  type="text"
+                  onChange={(v) => setIdentifier(v.target.value)}
+                />
                 <br />
-                <p className="w-full">MOBILE NO</p>
+                <p className="w-full">PASSWORD</p>
                 <InputTextField
                   label="ex: +91 XXXXX XXXXX"
-                  name=""
-                  type="text"
+                  name="password"
+                  type="password"
+                  onChange={(v) => setPassword(v.target.value)}
                 />
               </div>
-              <div className="h-[30%] flex justify-center items-center flex-col gap-3">
+              <div className="h-[35%] flex justify-center items-center flex-col gap-3">
                 <button
-                  className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs  px-2 gap-1 py-1  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
+                  onClick={submitHandler}
                 >
                   <span className="text-lg pt-[0.25rem]">LOGIN</span>
                   <svg
@@ -44,7 +76,14 @@ const PaymentLogin = () => {
                     />
                   </svg>
                 </button>
-                SIGN UP | LOGIN{" "}
+                <div
+                  onClick={() => {
+                    signUpHandler();
+                  }}
+                  className="hover:text-mahogany hover:underline hover:cursor-pointer"
+                >
+                  SIGN UP
+                </div>
               </div>
             </div>
           </div>
