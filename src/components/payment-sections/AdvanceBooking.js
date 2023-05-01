@@ -1,8 +1,30 @@
 import React from "react";
 import { useState } from "react";
 import Calendar from "react-calendar";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+const AdvanceBooking = ({ props }) => {
+  const router = useRouter();
 
-const CalendarDiv = () => {
+  //Stripe Logic
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const [clientSecret, setClientSecret] = useState("");
+  const URL = `https://${domain}/api/orders`;
+  // useEffect(() => {
+  //   // Create PaymentIntent as soon as the page loads
+  // }, []);
+  const appearance = {
+    theme: "night",
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
+  // Booking Date Time Logic
   const weekdayNames = ["M", "T", "W", "T", "F", "S", "S"];
   const formatShortWeekday = (locale, value) => {
     return weekdayNames[value.getDay()];
@@ -22,11 +44,33 @@ const CalendarDiv = () => {
   const timeOnClickHandler = (el) => {
     setSelectedTime(el);
   };
+
+  const bookNowHandler = (el) => {
+    fetch(URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: { name: "hello" },
+        type: "event",
+        id: 1,
+        attributes: {},
+      }),
+    })
+      .then((res) => res.json())
+
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+        router.push({
+          pathname: "/stripepayment",
+          query: data,
+        });
+      });
+  };
   return (
     <>
-      <div className="w-full h-full px-20 flex justify-around items-center  ">
-        <div className="w-1/2 h-full flex justify-start gap-7 items-center flex-col">
-          <p className="text-sm text-center text-textGray">
+      <div className="w-full h-full px-5 sm:px-20 flex justify-around items-center flex-col sm:flex-row">
+        <div className="w-[100%] sm:w-1/2 h-[50%] sm:h-full flex justify-center sm:justify-start sm:gap-7 items-center flex-col">
+          <p className="text-sm text-center text-textGray pb-3">
             PREGNANCY THERAPY / SELECT DATE AND TIME
           </p>
           <Calendar
@@ -35,16 +79,16 @@ const CalendarDiv = () => {
             formatShortWeekday={formatShortWeekday}
           />
         </div>
-        <div className="w-1/2 h-full flex justify-start gap-7 items-center flex-col">
-          <p className="text-sm text-center text-textGray">SELECT TIME</p>
-          <div className="w-[80%] h-[50%] flex justify-around items-center gap-3 flex-wrap">
+        <div className="w-full sm:w-1/2 h-[40%] sm:h-full flex justify-around sm:justify-start sm:gap-7 items-center flex-col">
+          <p className="text-sm text-center text-textGray ">SELECT TIME</p>
+          <div className="w-full sm:w-[80%] h-[55%] sm:h-[50%] flex justify-around items-center gap-3 flex-wrap">
             {availableTime &&
               availableTime.map((el, index) => {
                 if (selectedTime === el)
                   return (
                     <>
                       <button
-                        className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-4 gap-6 py-1 w-[25%] outline-none focus:outline-none  ease-linear transition-all duration-150"
+                        className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-4 sm:gap-6 py-1 w-[25%] outline-none focus:outline-none  ease-linear transition-all duration-150"
                         type="button"
                         onClick={() => {
                           timeOnClickHandler(el);
@@ -78,9 +122,12 @@ const CalendarDiv = () => {
           <button
             className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-2 gap-2 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
             type="button"
+            onClick={() => {
+              bookNowHandler();
+            }}
           >
             <span className="text-base pt-[0.25rem] w-full h-full">
-              REQUEST BOOKING
+              BOOK NOW
             </span>{" "}
             <svg
               className="stroke-current"
@@ -105,4 +152,4 @@ const CalendarDiv = () => {
   );
 };
 
-export default CalendarDiv;
+export default AdvanceBooking;

@@ -28,7 +28,7 @@ const BookingConfirm = () => {
         </div>
         <div className="h-[2%]"></div>
         <div className="flex justify-around items-center h-[49%] w-full">
-          <div className="flex justify-around items-center w-[30%] h-[50%]">
+          <div className="flex justify-around items-center sm:w-[30%] h-[50%]">
             <Image
               src={"/ourStory.png"}
               alt="Team"

@@ -1,6 +1,14 @@
 import React from "react";
 import Image from "next/image";
-const TherapiesCard = () => {
+import { useRouter } from "next/router";
+const TherapiesCard = ({ props }) => {
+  const router = useRouter();
+  const onClickHandler = () => {
+    router.push({
+      pathname: "/payment",
+      query: props,
+    });
+  };
   return (
     <>
       <div className="h-[30vh] w-[45vw] sm:w-[25vw] sm:h-[50vh] ">
@@ -85,6 +93,9 @@ const TherapiesCard = () => {
             <button
               className="flex justify-between items-center text-mahogany border-[0.15rem] border-mahogany hover:bg-mahogany hover:text-white font-bold py-2 px-3 text-xs   outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"
+              onClick={() => {
+                onClickHandler();
+              }}
             >
               <span className="h-full w-full text-xs flex items-end justify-around ">
                 BOOK

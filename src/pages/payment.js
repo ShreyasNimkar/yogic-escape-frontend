@@ -1,12 +1,15 @@
-import Payment from "@/components/screens/Payment";
+import PaymentScreen from "@/components/screens/Payment";
 import React from "react";
-
-const payment = () => {
+import { useRouter } from "next/router";
+const Payment = () => {
+  const router = useRouter();
+  const props = router.query;
+  console.log(props);
   return (
     <>
-      <Payment />
+      <PaymentScreen props={props} />
     </>
   );
 };
 
-export default payment;
+export default Payment;

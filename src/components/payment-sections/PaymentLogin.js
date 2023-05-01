@@ -5,7 +5,7 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
-const PaymentLogin = () => {
+const PaymentLogin = ({ setTabNumber }) => {
   const router = useRouter();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +21,7 @@ const PaymentLogin = () => {
     if (res.status === 1) {
       // console.log(res.data);
       Cookies.set("jwt", res.data.jwt);
+      setTabNumber(1);
     }
   };
   const signUpHandler = () => {
@@ -29,12 +30,12 @@ const PaymentLogin = () => {
   return (
     <>
       <div className="w-full h-full">
-        <div className="text-mahogany text-center text-lg font-semibold h-[10%]">
-          Login in to Yogic Escape
+        <div className="text-mahogany text-center text-lg font-semibold flex justify-around items-center h-[5%] sm:h-[10%]">
+          <p>Login in to Yogic Escape</p>
         </div>
-        <div className="h-[90%] flex justify-around items-center">
-          <div className="w-[49%] h-full flex justify-around items-center">
-            <div className="w-[50%] h-full ">
+        <div className="h-[90%] sm:flex-row flex-col flex justify-around items-center">
+          <div className="w-full sm:w-[49%] h-[60%] sm:h-full flex justify-around items-center">
+            <div className="w-[80%] sm:w-[50%] h-full ">
               <div className="h-[65%] w-full flex justify-center gap-1 items-center flex-col">
                 <p className="w-full">USERNAME / EMAIL</p>
                 <InputTextField
@@ -87,14 +88,21 @@ const PaymentLogin = () => {
               </div>
             </div>
           </div>
-          <div className="w-[2%] h-full flex flex-col justify-center items-center">
+          <div className="sm:flex hidden  w-[2%] h-full  flex-col justify-center items-center">
             <div className="h-[30%] w-[10%] bg-[#D9D9D9]"></div>
             <div className="h-[15%] w-full flex justify-around items-center text-center text-sm">
               OR
             </div>
             <div className="h-[30%] w-[10%] bg-[#D9D9D9]"></div>
           </div>
-          <div className="w-[49%]">
+          <div className="sm:hidden flex h-[5%] w-full justify-center items-center">
+            <div className="h-[10%] w-[30%] bg-[#D9D9D9]"></div>
+            <div className="h-full w-[20%] flex justify-around items-center text-center text-sm">
+              OR
+            </div>
+            <div className="h-[10%] w-[30%] bg-[#D9D9D9]"></div>
+          </div>
+          <div className="w-[80%] sm:w-[49%] h-[20%] sm:h-full ">
             <div className="w-full h-full flex justify-center items-center flex-col gap-5">
               <button
                 className="flex justify-between items-center bg-paleIvory border-textGray text-textGray border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-2 gap-1 py-1  outline-none focus:outline-none  ease-linear transition-all duration-150"

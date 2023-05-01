@@ -1,7 +1,26 @@
 import React from "react";
 import TherapiesCard from "../uncommon/MassageAndTherapiesCards/TherapiesCard";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 const TherapiesList = () => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const [therapiesData, setTherapiesData] = useState([]);
+  const therapiesController = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+    };
+    const URL = `https://${domain}/api/therapies`;
+    const res = await axios.get(URL, { headers });
+    const therapies = res.data.data;
+    console.log(therapies);
+    setTherapiesData(therapies);
+  };
+  useEffect(() => {
+    therapiesController();
+    console.log(therapiesData);
+  }, []);
   return (
     <>
       <div className="h-[30vh] flex justify-around items-center flex-col bg-white">
@@ -28,9 +47,10 @@ const TherapiesList = () => {
       </div>
       <div className="h-full w-full bg-white">
         <div className="h-full w-full flex justify-center items-center flex-row sm:flex-row flex-wrap py-[2rem] px-[0.5rem] sm:px-[5rem] gap-x-5 gap-y-7">
-          <TherapiesCard />
-          <TherapiesCard />
-          <TherapiesCard />
+          {therapiesData &&
+            therapiesData.map((el) => (
+              <TherapiesCard key={el.id} props={el.attributes} />
+            ))}
         </div>
       </div>
     </>

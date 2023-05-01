@@ -12,7 +12,6 @@ const TeamMembers = () => {
     const headers = {
       "Content-Type": "application/json",
       "ngrok-skip-browser-warning": true,
-      // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
     const URL = `https://${domain}/api/team-members?populate=*`;
     const res = await axios.get(URL, { headers });

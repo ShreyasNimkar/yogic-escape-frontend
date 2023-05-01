@@ -3,11 +3,11 @@ import Header from "../common/Header";
 import Footer from "../common/Footer";
 import PaymentTab from "../payment-sections/PaymentTab";
 
-const Payment = () => {
+const Payment = ({ props }) => {
   return (
     <>
       <Header />
-      <PaymentTab />
+      <PaymentTab props={props} />
       <Footer />
     </>
   );

@@ -2,103 +2,144 @@ import React from "react";
 import InputTextField from "../common/InputTextField";
 import PaymentLogin from "./PaymentLogin";
 import BookingConfirm from "./BookingConfirm";
-import CalendarDiv from "./CalendarDiv";
-const PaymentTab = () => {
+import { useState } from "react";
+import AdvanceBooking from "./AdvanceBooking";
+const PaymentTab = ({ props }) => {
+  console.log(props);
+  const [tabNumber, setTabNumber] = useState(0);
+  const tabs = [
+    {
+      index: 1,
+      label: "LOGIN",
+      content: <PaymentLogin setTabNumber={setTabNumber} />,
+      activesvg: (
+        <svg
+          width="25"
+          height="26"
+          viewBox="0 0 25 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.2437" cy="13.0889" r="12.1265" fill="#9F2420" />
+          <path
+            d="M10.2397 8.24016H13.1728V19.4609H11.5187V9.82608H10.2397V8.24016Z"
+            fill="white"
+          />
+        </svg>
+      ),
+      inactivesvg: (
+        <svg
+          width="25"
+          height="26"
+          viewBox="0 0 25 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.2437" cy="13.0889" r="12.1265" fill="#C4C4C4" />
+          <path
+            d="M10.2397 8.24016H13.1728V19.4609H11.5187V9.82608H10.2397V8.24016Z"
+            fill="#474747"
+          />
+        </svg>
+      ),
+    },
+    {
+      index: 2,
+      label: "SELECT TIME & DATE",
+      content: <AdvanceBooking props={props} setTabNumber={setTabNumber} />,
+      activesvg: (
+        <svg
+          width="26"
+          height="25"
+          viewBox="0 0 26 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.9597" cy="12.2483" r="12.2488" fill="#9F2420" />
+          <path
+            d="M9.19026 18.5532C9.92519 17.8413 10.6257 17.1408 11.2917 16.4518C11.9577 15.7628 12.5549 15.0968 13.0831 14.4537C13.6228 13.8106 14.0477 13.1905 14.3577 12.5934C14.6678 11.9848 14.8228 11.3992 14.8228 10.8365C14.8228 10.4575 14.7596 10.136 14.6333 9.87188C14.507 9.59629 14.3405 9.37236 14.1338 9.20011C13.9386 9.02787 13.7147 8.90155 13.462 8.82117C13.2094 8.7293 12.951 8.68337 12.6869 8.68337C12.308 8.68337 11.9864 8.74653 11.7223 8.87284C11.4582 8.98767 11.24 9.1427 11.0678 9.33791C10.907 9.53313 10.7864 9.73983 10.7061 9.95801C10.6372 10.1762 10.6027 10.3944 10.6027 10.6126C10.6027 10.9915 10.6601 11.336 10.775 11.646C10.8898 11.9446 11.0563 12.2087 11.2745 12.4384L10.241 13.3513C9.97686 13.1791 9.7472 12.9379 9.55198 12.6279C9.36825 12.3178 9.22471 11.9848 9.12136 11.6288C9.0295 11.2614 8.98356 10.9341 8.98356 10.647C8.98356 10.0269 9.13285 9.447 9.43141 8.90729C9.74146 8.3561 10.1893 7.91399 10.775 7.58098C11.3721 7.24796 12.0955 7.08145 12.9453 7.08145C13.6687 7.08145 14.3003 7.24796 14.84 7.58098C15.3797 7.91399 15.7989 8.3561 16.0974 8.90729C16.396 9.447 16.5453 10.0441 16.5453 10.6987C16.5453 11.2728 16.4305 11.8355 16.2008 12.3867C15.9711 12.9379 15.6611 13.4834 15.2706 14.0231C14.8917 14.5628 14.4668 15.0968 13.996 15.625C13.5367 16.1417 13.0773 16.6642 12.618 17.1925L11.8946 16.9513H16.9242V18.5532H9.19026Z"
+            fill="white"
+          />
+        </svg>
+      ),
+      inactivesvg: (
+        <svg
+          width="26"
+          height="25"
+          viewBox="0 0 26 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.9597" cy="12.2483" r="12.2488" fill="#C4C4C4" />
+          <path
+            d="M9.19026 18.5532C9.92519 17.8413 10.6257 17.1408 11.2917 16.4518C11.9577 15.7628 12.5549 15.0968 13.0831 14.4537C13.6228 13.8106 14.0477 13.1905 14.3577 12.5934C14.6678 11.9848 14.8228 11.3992 14.8228 10.8365C14.8228 10.4575 14.7596 10.136 14.6333 9.87188C14.507 9.59629 14.3405 9.37236 14.1338 9.20011C13.9386 9.02787 13.7147 8.90155 13.462 8.82117C13.2094 8.7293 12.951 8.68337 12.6869 8.68337C12.308 8.68337 11.9864 8.74653 11.7223 8.87284C11.4582 8.98767 11.24 9.1427 11.0678 9.33791C10.907 9.53313 10.7864 9.73983 10.7061 9.95801C10.6372 10.1762 10.6027 10.3944 10.6027 10.6126C10.6027 10.9915 10.6601 11.336 10.775 11.646C10.8898 11.9446 11.0563 12.2087 11.2745 12.4384L10.241 13.3513C9.97686 13.1791 9.7472 12.9379 9.55198 12.6279C9.36825 12.3178 9.22471 11.9848 9.12136 11.6288C9.0295 11.2614 8.98356 10.9341 8.98356 10.647C8.98356 10.0269 9.13285 9.447 9.43141 8.90729C9.74146 8.3561 10.1893 7.91399 10.775 7.58098C11.3721 7.24796 12.0955 7.08145 12.9453 7.08145C13.6687 7.08145 14.3003 7.24796 14.84 7.58098C15.3797 7.91399 15.7989 8.3561 16.0974 8.90729C16.396 9.447 16.5453 10.0441 16.5453 10.6987C16.5453 11.2728 16.4305 11.8355 16.2008 12.3867C15.9711 12.9379 15.6611 13.4834 15.2706 14.0231C14.8917 14.5628 14.4668 15.0968 13.996 15.625C13.5367 16.1417 13.0773 16.6642 12.618 17.1925L11.8946 16.9513H16.9242V18.5532H9.19026Z"
+            fill="#474747"
+          />
+        </svg>
+      ),
+    },
+    {
+      index: 3,
+      label: "WE WILL CONFIRM",
+      content: <BookingConfirm />,
+      activesvg: (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.6754" cy="12.2481" r="12.1637" fill="#9F2420" />
+          <path
+            d="M15.5023 7.34442L12.4918 12.1852L11.4997 11.7233C11.6479 11.6435 11.8133 11.5865 11.9957 11.5523C12.1782 11.5181 12.3606 11.501 12.5431 11.501C12.965 11.4782 13.3756 11.5238 13.7747 11.6378C14.1738 11.7518 14.533 11.94 14.8523 12.2023C15.1716 12.4646 15.4225 12.8124 15.6049 13.2457C15.7988 13.679 15.8957 14.215 15.8957 14.8536C15.8957 15.6518 15.7133 16.3417 15.3483 16.9233C14.9834 17.5049 14.4988 17.9553 13.8944 18.2746C13.3014 18.5825 12.64 18.7365 11.9102 18.7365C11.3628 18.7365 10.8155 18.6281 10.2681 18.4115C9.73216 18.1834 9.28742 17.8869 8.93392 17.522L9.77207 16.1536C9.98873 16.4044 10.2852 16.6325 10.6615 16.8378C11.0493 17.043 11.4484 17.1457 11.8589 17.1457C12.2922 17.1457 12.6799 17.0487 13.022 16.8549C13.3756 16.661 13.6549 16.3873 13.8602 16.0338C14.0769 15.6689 14.1852 15.247 14.1852 14.7681C14.1852 14.1067 13.9913 13.5878 13.6036 13.2115C13.2273 12.8352 12.7085 12.647 12.0471 12.647C11.7164 12.647 11.437 12.6755 11.2089 12.7325C10.9808 12.7782 10.7756 12.8352 10.5931 12.9036L10.5418 12.8352L13.1931 8.71284L13.7063 8.9352H9.58391V7.34442H15.5023Z"
+            fill="white"
+          />
+        </svg>
+      ),
+      inactivesvg: (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12.6754" cy="12.2481" r="12.1637" fill="#C4C4C4" />
+          <path
+            d="M15.5023 7.34442L12.4918 12.1852L11.4997 11.7233C11.6479 11.6435 11.8133 11.5865 11.9957 11.5523C12.1782 11.5181 12.3606 11.501 12.5431 11.501C12.965 11.4782 13.3756 11.5238 13.7747 11.6378C14.1738 11.7518 14.533 11.94 14.8523 12.2023C15.1716 12.4646 15.4225 12.8124 15.6049 13.2457C15.7988 13.679 15.8957 14.215 15.8957 14.8536C15.8957 15.6518 15.7133 16.3417 15.3483 16.9233C14.9834 17.5049 14.4988 17.9553 13.8944 18.2746C13.3014 18.5825 12.64 18.7365 11.9102 18.7365C11.3628 18.7365 10.8155 18.6281 10.2681 18.4115C9.73216 18.1834 9.28742 17.8869 8.93392 17.522L9.77207 16.1536C9.98873 16.4044 10.2852 16.6325 10.6615 16.8378C11.0493 17.043 11.4484 17.1457 11.8589 17.1457C12.2922 17.1457 12.6799 17.0487 13.022 16.8549C13.3756 16.661 13.6549 16.3873 13.8602 16.0338C14.0769 15.6689 14.1852 15.247 14.1852 14.7681C14.1852 14.1067 13.9913 13.5878 13.6036 13.2115C13.2273 12.8352 12.7085 12.647 12.0471 12.647C11.7164 12.647 11.437 12.6755 11.2089 12.7325C10.9808 12.7782 10.7756 12.8352 10.5931 12.9036L10.5418 12.8352L13.1931 8.71284L13.7063 8.9352H9.58391V7.34442H15.5023Z"
+            fill="#474747"
+          />
+        </svg>
+      ),
+    },
+  ];
+
   return (
     <>
-      <div className="h-[80vh] bg-paleIvory w-full">
-        <div className="w-full h-[25%] flex justify-around items-center">
-          <div className="h-full w-[20%]">Back</div>
-          <div className="h-full w-[60%] flex justify-around items-center">
-            <div className="h-full w-[20%] flex justify-center items-center flex-col gap-2">
-              <div className="flex justify-around items-end h-1/2 w-full">
-                <svg
-                  width="25"
-                  height="26"
-                  viewBox="0 0 25 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="12.2437"
-                    cy="13.0889"
-                    r="12.1265"
-                    fill="#9F2420"
-                  />
-                  <path
-                    d="M10.2397 8.24016H13.1728V19.4609H11.5187V9.82608H10.2397V8.24016Z"
-                    fill="white"
-                  />
-                </svg>
+      <div className="h-[90vh] sm:h-[80vh] bg-paleIvory w-full">
+        <div className="w-full h-[15%] sm:h-[25%] flex justify-around items-center">
+          <div className="h-full hidden sm:w-[20%]"></div>
+          <div className="h-full w-full sm:w-[60%] flex justify-around items-center">
+            {/* Render each tab item */}
+            {tabs.map((tab, index) => (
+              <div
+                key={index}
+                className={`h-full w-[30%] sm:w-[20%] flex justify-center items-center flex-col gap-2  ${
+                  tabNumber === index ? "text-black font-bold" : "text-gray-400"
+                }`}
+              >
+                <div className="flex justify-around items-end h-1/2 w-full">
+                  {tabNumber === index ? tab.activesvg : tab.inactivesvg}
+                </div>
+                <p className="text-sm text-center w-full h-1/2">{tab.label}</p>
               </div>
-              <p className="text-sm text-center h-1/2">LOGIN</p>
-            </div>
-            <div className="h-full w-[20%] flex justify-around items-center">
-              <div className="h-[2%] bg-[#D9D9D9] w-full"></div>
-            </div>
-            <div className="h-full w-[20%] flex justify-center items-center flex-col gap-2">
-              <div className="flex justify-around items-end h-1/2 w-full">
-                <svg
-                  width="25"
-                  height="26"
-                  viewBox="0 0 25 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="12.2437"
-                    cy="13.0889"
-                    r="12.1265"
-                    fill="#9F2420"
-                  />
-                  <path
-                    d="M10.2397 8.24016H13.1728V19.4609H11.5187V9.82608H10.2397V8.24016Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <p className="text-sm text-center h-1/2">
-                SELECT TIME & <br /> DATE
-              </p>
-            </div>
-            <div className="h-full w-[20%] flex justify-around items-center">
-              <div className="h-[2%] bg-[#D9D9D9] w-full"></div>
-            </div>
-            <div className="h-full w-[20%] flex justify-center items-center flex-col gap-2">
-              <div className="flex justify-around items-end h-1/2 w-full">
-                <svg
-                  width="25"
-                  height="26"
-                  viewBox="0 0 25 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="12.2437"
-                    cy="13.0889"
-                    r="12.1265"
-                    fill="#9F2420"
-                  />
-                  <path
-                    d="M10.2397 8.24016H13.1728V19.4609H11.5187V9.82608H10.2397V8.24016Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <p className="text-sm text-center h-1/2">
-                WE WILL
-                <br />
-                CONFIRM
-              </p>
-            </div>
+            ))}
           </div>
-          <div className="h-full w-[20%]"></div>
+          <div className="h-full hidden sm:w-[20%]"></div>
         </div>
-        {/* here */}
-        <div className="w-full h-[75%]">
-          <PaymentLogin />
-          {/* <CalendarDiv /> */}
-          {/* <BookingConfirm /> */}
+        <div className="w-full h-[85%] sm:h-[75%]">
+          {tabs[tabNumber].content}
         </div>
       </div>
     </>
