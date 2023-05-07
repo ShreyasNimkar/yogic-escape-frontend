@@ -10,9 +10,26 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { useState } from "react";
-
+import { useEffect } from "react";
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [sliderheight, setsliderheight] = useState(70);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setsliderheight(70);
+      } else {
+        setsliderheight(140);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSlideChange = (newIndex) => {
     console.log(newIndex);
@@ -51,14 +68,14 @@ const Testimonials = () => {
         <CarouselProvider
           className="h-[100%] w-full justify-around items-center"
           naturalSlideWidth={100}
-          naturalSlideHeight={75}
+          naturalSlideHeight={sliderheight}
           totalSlides={quotes.length}
           infinite={true}
           currentSlide={activeIndex}
           //   onSlideChange={handleSlideChange}
         >
           <div className="h-[90%] flex justify-around items-center">
-            <ButtonBack className="h-full">
+            <ButtonBack className="h-[60%]">
               <svg
                 width="25"
                 height="25"
@@ -78,18 +95,18 @@ const Testimonials = () => {
             <Slider className="h-[100%] w-[80%] ">
               {quotes.map((quote, index) => (
                 <Slide index={0} key={index + 23421331}>
-                  <div className="h-[200%] sm:h-full w-full text-center">
-                    <div className="w-full h-[50%] sm:h-[30%] text-2xl font-Quasonnnn">
-                      <p>{quote}</p>
+                  <div className="h-[100%] sm:h-[100%] w-full text-center">
+                    <div className="w-full h-[50%] flex justify-star items-end sm:h-[30%] text-2xl font-Quasonnnn">
+                      <p className="h-max  w-full text-center">{quote}</p>
                     </div>
-                    <div className="w-full h-[50%] sm:h-[30%] text-mahogany">
+                    <div className="w-full pt-3 h-[10%] sm:h-[50%] text-mahogany">
                       ~Joulie, A doctor
                     </div>
                   </div>
                 </Slide>
               ))}
             </Slider>
-            <ButtonNext className="h-full">
+            <ButtonNext className="h-[60%]">
               <svg
                 width="25"
                 height="25"

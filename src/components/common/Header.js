@@ -283,9 +283,14 @@ const Header = () => {
             </div>
             <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col w-[6vw]">
               <div className="group-hover:underline w-full text-center">
-                PODCAST
+                <Link
+                  href={"/podcast"}
+                  className="cursor-pointer hover:text-mahogany"
+                >
+                  PODCAST
+                </Link>
               </div>
-              <div className="hidden cursor-default opacity-0 fixed group-hover:flex group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 ease-out bg-transparent rounded-b-md top-[9.2vh] -flex-col-x-12 z-30  justify-around items-center flex-col w-[15vw] -translate-x-[4.5vw]  ">
+              {/* <div className="hidden cursor-default opacity-0 fixed group-hover:flex group-hover:opacity-100 group-hover:transition-all group-hover:duration-700 ease-out bg-transparent rounded-b-md top-[9.2vh] -flex-col-x-12 z-30  justify-around items-center flex-col w-[15vw] -translate-x-[4.5vw]  ">
                 <div className="bg-transparent  h-[5.6vh] w-full cursor-default"></div>
                 <svg
                   width="20"
@@ -304,23 +309,23 @@ const Header = () => {
                       href={"/meet-the-team"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* MEET THE TEAM */}
+                      MEET THE TEAM
                     </Link>
                     <Link
                       href={"/who-we-are"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* WHO WE ARE */}
+                      WHO WE ARE
                     </Link>
                     <Link
                       href={"/rent-our-space"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* ROOM RENTALS */}
+                      ROOM RENTALS
                     </Link>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="group relative cursor-pointer hover:text-mahogany flex justify-around items-start flex-col w-[6vw]">
               <div className="group-hover:underline w-full text-center">
@@ -342,22 +347,22 @@ const Header = () => {
                 <div className="bg-white cursor-default border-t-[0.1rem] border-mahogany h-full w-full ">
                   <div className="w-full text-black h-full gap-3 flex justify-around items-center flex-col py-3 text-center">
                     <Link
-                      href={"/meet-the-team"}
+                      href={"/mantras"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* MEET THE TEAM */}
+                      MANTRAS
                     </Link>
                     <Link
-                      href={"/who-we-are"}
+                      href={"/blogs"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* WHO WE ARE */}
+                      BLOGS
                     </Link>
                     <Link
-                      href={"/rent-our-space"}
+                      href={"/giftcard"}
                       className="cursor-pointer hover:text-mahogany"
                     >
-                      {/* ROOM RENTALS */}
+                      GIFTCARD
                     </Link>
                   </div>
                 </div>

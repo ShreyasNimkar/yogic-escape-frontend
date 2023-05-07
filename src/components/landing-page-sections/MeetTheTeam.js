@@ -262,9 +262,9 @@ const MeetTheTeam = () => {
 
             {/* Carousel for mobile and Small size Devices */}
             <CarouselProvider
-              className="block md:hidden mr-20"
-              naturalSlideWidth={100}
-              isIntrinsicHeight={true}
+              className="block md:hidden"
+              naturalSlideWidth={0}
+              // isIntrinsicHeight={true}
               totalSlides={memberData.length}
               visibleSlides={1}
               step={1}
@@ -298,7 +298,7 @@ const MeetTheTeam = () => {
                   <Slider>
                     <div
                       id="slider"
-                      className="h-full w-full mx-10 flex md:gap-6 lg:gap-8 items-center transition ease-out duration-700"
+                      className="h-full w-full sm:mx-10 flex md:gap-6 lg:gap-8 items-center transition ease-out duration-700"
                     >
                       {memberData &&
                         memberData.map((el, index) => {
@@ -306,7 +306,7 @@ const MeetTheTeam = () => {
                             <>
                               <Slide
                                 index={0}
-                                key={index + 2344}
+                                key={index}
                                 className="w-[80%] sm:w-[20%] h-full"
                               >
                                 <div className="h-[80%] w-80% flex flex-col items-center justify-around">
@@ -316,7 +316,7 @@ const MeetTheTeam = () => {
                                     alt="Team"
                                     height={10000}
                                     width={10000}
-                                    className="h-full w-[20rem] sm:h-[30vh] sm:w-full object-cover"
+                                    className="h-[40vh] w-[20rem] sm:h-[30vh] sm:w-full object-cover"
                                   />
                                   <div className="text-xl mt-2 text-center">
                                     {el.attributes.Name}
@@ -362,7 +362,7 @@ const MeetTheTeam = () => {
       </div>
       <div className="h-[10vh] flex justify-around items-center">
         <button
-          className="flex justify-around items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
+          className="flex justify-around items-center bg-mahogany border-mahogany text-white border-2  hover:bg-white hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
           type="button"
         >
           <span className="text-base pt-[0.25rem]">LEARN</span>

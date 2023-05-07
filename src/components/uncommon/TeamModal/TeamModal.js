@@ -22,9 +22,9 @@ const TeamModal = ({
     <div
       onClick={handleOnClose}
       id="modalcontainer"
-      className="fixed inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center"
+      className="fixed inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center "
     >
-      <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory flex justify-around items-center">
+      <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory flex justify-around items-center ">
         <div className="w-[8%] h-full  flex justify-around items-center flex-col p-1">
           <svg
             width="25"
@@ -58,7 +58,9 @@ const TeamModal = ({
                 {modalData.attributes.Experience}
               </span>
             </p>
-            <p className="text-sm">{modalData.attributes.About}</p>
+            <p className="sm:text-[0.5rem] text-xs">
+              {modalData.attributes.About}
+            </p>
           </div>
           <div className="w-full sm:w-[30%] h-[40%] sm:h-full overflow-hidden flex justify-around items-center">
             <Image
@@ -66,7 +68,7 @@ const TeamModal = ({
               alt="Team"
               height={10000}
               width={10000}
-              className="w-full h-auto p-5 "
+              className="w-[80%] h-[45vh] object-contain  "
             />
           </div>
         </div>
