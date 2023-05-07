@@ -1,11 +1,7 @@
 import React from "react";
-import InputTextField from "../../common/InputTextField";
+import InputTextField from "../common/InputTextField";
 import { useState } from "react";
-import CallUs from "@/components/common/CallUs";
-const EnrollmentForm = () => {
-  const domain = process.env.NEXT_PUBLIC_DOMAIN;
-
-  const URL = `https://${domain}/api/mailing-lists`;
+const RetreatsEnrollment = () => {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
@@ -26,7 +22,7 @@ const EnrollmentForm = () => {
   };
   return (
     <>
-      <div className="h-[80vh] w-full bg-paleIvory">
+      <div className="h-[80vh] w-full bg-white">
         <div className="flex justify-around flex-col items-center h-full w-full z-10">
           <div className="h-[80%] border-2 border-mahogany bg-white w-4/6  relative z-10">
             <div className="h-[10%] text-center text-mahogany flex justify-around items-center font-semibold tracking-widest">
@@ -90,10 +86,8 @@ const EnrollmentForm = () => {
           </div>
         </div>
       </div>
-      <CallUs />
-      <div className="h-[2vh] bg-white"></div>
     </>
   );
 };
 
-export default EnrollmentForm;
+export default RetreatsEnrollment;

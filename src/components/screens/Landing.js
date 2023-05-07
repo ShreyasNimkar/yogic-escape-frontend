@@ -30,7 +30,7 @@ const Landing = () => {
       <MeetTheTeam />
       <SectionDivider />
       <MindBodySoul />
-      {/* <BeInTouch /> */}
+
       <NewsLetter />
       <Footer />
     </>

@@ -15,9 +15,7 @@ const HomePageTabs = () => {
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
     const URL = `https://${domain}/api/events?populate=*&sort=Date&pagination[pageSize]=2`;
-
     const res = await axios.get(URL, { headers });
-
     const members = res.data.data;
     seteventsData(members);
   };

@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <>
-      <div className=" h-[10vh] bg-paleIvory lg:bg-offWhite lg:h-[16vh] w-[100vw]">
+      <div className=" h-[10vh] text-center bg-paleIvory lg:bg-offWhite lg:h-[16vh] w-[100vw]">
         <div className="w-full h-full flex justify-around items-center px-[6%] gap-[1rem] overflow-y-hidden">
           <div className="w-[10%] flex justify-around items-center lg:hidden ">
             <Image

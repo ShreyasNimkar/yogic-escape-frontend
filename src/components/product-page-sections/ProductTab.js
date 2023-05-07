@@ -6,7 +6,6 @@ const ProductTab = () => {
       <div className="h-[80vh] w-full flex justify-around items-center bg-paleIvory">
         <div className="h-full w-[80%] flex justify-around items-center">
           <div className="w-1/2 h-full flex justify-around items-center">
-            {" "}
             <Image
               //   src={`http://${domain}${el.attributes.Profile.data.attributes.url}`}
               src={"/peopleImageYoga.svg"}
