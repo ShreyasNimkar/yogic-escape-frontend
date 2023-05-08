@@ -4,6 +4,8 @@ import postHandler from "@/request-handlers/postHandler";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PaymentLogin = ({ setTabNumber }) => {
   const router = useRouter();
@@ -22,6 +24,17 @@ const PaymentLogin = ({ setTabNumber }) => {
       // console.log(res.data);
       Cookies.set("jwt", res.data.jwt);
       setTabNumber(1);
+    } else if (res.status === 0) {
+      toast.error(res.data.error.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   const signUpHandler = () => {
@@ -29,6 +42,7 @@ const PaymentLogin = ({ setTabNumber }) => {
   };
   return (
     <>
+      <ToastContainer />
       <div className="w-full h-full">
         <div className="text-mahogany text-center text-lg font-semibold flex justify-around items-center h-[5%] sm:h-[10%]">
           <p>Login in to Yogic Escape</p>

@@ -1,39 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import Title from "../common/Title";
 const Recommendation = () => {
   return (
     <>
-      <div className="h-[60vh] flex justify-around items-center flex-col">
-        <div className="h-[30%] w-full">
-          <div className=" text-center bg-white sm:w-[100%] h-full  font-semibold flex justify-center items-center flex-col bg-30% tracking-[0.15em] bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
-            OFTEN BROUGHT TOGETHER
-            <svg
-              width="787"
-              height="3"
-              viewBox="0 0 787 3"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-[80%] sm:w-1/4"
-            >
-              <line
-                x1="1.5"
-                y1="1.5"
-                x2="785.5"
-                y2="1.5"
-                stroke="#9F2420"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="flex justify-around items-center w-[50%] gap-4 h-[40%] py-5">
+      <Title color={"white"} value={"OFTEN BOUGHT TOGETHER"} />
+      <div className="h-max pb-10 flex justify-around items-center flex-col">
+        <div className="flex justify-around flex-col sm:flex-row items-center w-[90%] sm:w-[60%] gap-4 h-max py-5">
           <Image
             src={"/ourStory.png"}
             alt="Team"
             height={10000}
             width={10000}
-            className="object-cover rounded-lg h-[80%] w-[25%]"
+            className="object-cover rounded-lg h-[10vh] sm:h-[15vh] w-[15vh]"
           />
           <svg
             width="15"
@@ -47,21 +26,20 @@ const Recommendation = () => {
               fill="#9F2420"
             />
           </svg>
-
           <Image
             src={"/ourStory.png"}
             alt="Team"
             height={10000}
             width={10000}
-            className="object-cover rounded-lg h-[80%] w-[25%]"
+            className="object-cover rounded-lg h-[10vh] sm:h-[15vh] w-[15vh]"
           />
-          <div className="w-[50%] h-[80%] flex text-textGray justify-around items-center flex-col">
+          <div className="w-[80%] sm:w-[50%] h-max flex text-textGray justify-center items-center flex-col">
             <p className="text-mahogany text-lg w-full">SOUND THERAPY</p>
             <p className="flex justify-between text-sm w-full items-center">
-              asd + ASD
+              1 Pregnancy Massage + 1 Postpartum Massage
             </p>
             <p className="text-lg text-mahogany w-full flex justify-start items-center">
-              210E
+              €210
             </p>
           </div>
         </div>

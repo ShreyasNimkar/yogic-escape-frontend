@@ -1,29 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import Title from "../common/Title";
 const BeInTouch = () => {
   return (
     <>
-      <div className="w-full h-[20vh] text-2xl text-center bg-paleIvory flex justify-center flex-col gap-2 items-center">
-        BE IN TOUCH!
-        <svg
-          width="787"
-          height="3"
-          viewBox="0 0 787 3"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-1/6"
-        >
-          <line
-            x1="1.5"
-            y1="1.5"
-            x2="785.5"
-            y2="1.5"
-            stroke="#9F2420"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
+      <Title value={"BE IN TOUCH"} color={"paleIvory"} />
       <div className="h-[70vh] sm:h-[70vh] w-full bg-paleIvory">
         <div className="w-full text-mahogany h-[10%] sm:h-[10%] text-center flex justify-around items-center">
           @yogicescape

@@ -4,7 +4,7 @@ import Image from "next/image";
 const BlogCard = () => {
   return (
     <>
-      <div className="w-[90%] pt-6 sm:px-6 h-[45vh] bg-white">
+      <div className="w-[90%] pt-6 sm:px-6 my-5 h-[45vh] bg-white">
         <div className="sm:h-[10%] flex flex-col sm:flex-row  justify-start gap-2 items-start sm:items-center">
           <div className="w-full sm:w-[30%] h-full flex justify-start gap-2 items-center">
             <div className="h-full w-[16%] flex justify-start  items-center">
@@ -35,7 +35,12 @@ const BlogCard = () => {
               endless journey from you, to you and through you. While the
               practice of yoga may have begun for you..
             </div>
-            <div className="h-[15%]">----------------------</div>
+            <div
+              className="h-[0vh] border-[1px] border-dashed border-gray-800"
+              style={{ borderDasharray: "40px" }}
+            >
+              ----------------------
+            </div>
             <div className="flex justify-start gap-1 items-center h-[15%]">
               <div className="flex text-textGray text-xs justify-start items-center">
                 32 views | 0 comments | 3

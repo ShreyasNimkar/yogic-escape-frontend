@@ -1,33 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Title from "../common/Title";
 const ActivitiesSection = () => {
   return (
     <>
-      <div className="h-[100vh] sm:h-[60vh] bg-paleIvory">
-        <div className="h-[20%] sm:h-[30%]">
-          <p className="h-full text-2xl font-semibold flex justify-center items-center flex-col bg-30% bg-no-repeat bg-[center_bottom_2rem] gap-2 text-center">
-            ACHIEVE MINDFULLNESS WITH US
-            <svg
-              width="787"
-              height="3"
-              viewBox="0 0 787 3"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-[80%] sm:w-1/4"
-            >
-              <line
-                x1="1.5"
-                y1="1.5"
-                x2="785.5"
-                y2="1.5"
-                stroke="#9F2420"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
-          </p>
-        </div>
-        <div className="h-[70%] px-10 flex flex-col sm:flex-row justify-center gap-7 items-center">
+      <Title value={"ACHIEVE MINDFULLNESS WITH US"} color={"paleIvory"} />
+      <div className="h-[70vh] sm:h-[60vh] bg-paleIvory">
+        <div className="h-[100%] px-10 flex flex-col sm:flex-row justify-center gap-7 items-center">
           <div className="w-[90%] h-[45%] sm:h-[90%] sm:w-[20%]">
             <div className="w-full h-[60%] sm:h-[60%]">
               <div className="h-full w-full bg-hero-section-bg bg-cover bg-no-repeat flex justify-around items-center text-white">

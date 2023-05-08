@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import postHandler from "@/request-handlers/postHandler";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Cookies from "js-cookie";
 const Login = () => {
@@ -17,10 +19,22 @@ const Login = () => {
     console.log(res);
     if (res.status === 1) {
       Cookies.set("jwt", res.data.jwt);
+    } else if (res.status === 0) {
+      toast.error(res.data.error.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return (
     <>
+      <ToastContainer />
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">

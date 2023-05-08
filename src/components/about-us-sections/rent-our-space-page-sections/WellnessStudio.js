@@ -1,31 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Title from "@/components/common/Title";
 const WellnessStudio = () => {
   return (
     <>
-      <div className="h-[80vh] sm:h-[120vh] w-full bg-white ">
-        <div className="h-[15%] sm:h-[13%] text-center flex flex-col gap-3 justify-center items-center text-2xl">
-          WELLNESS STUDIO
-          <svg
-            width="787"
-            height="3"
-            viewBox="0 0 787 3"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-[80%] sm:w-1/4"
-          >
-            <line
-              x1="1.5"
-              y1="1.5"
-              x2="785.5"
-              y2="1.5"
-              stroke="#9F2420"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <div className="h-[30%] sm:h-[25%] text-md px-4 sm:px-28">
+      <Title value={"WELLNESS STUDIO"} color={"white"} />
+      <div className="h-[80vh] sm:h-[100vh] w-full bg-white ">
+        <div className="h-[30%] sm:h-[30%] text-md px-4 sm:px-28">
           The small yoga room is around 18 m². The room is cozy and easy to
           ventilate with the windows available. We could provide the following
           for your therapies and private sessions
@@ -107,7 +88,7 @@ const WellnessStudio = () => {
             </li>
           </ul>
         </div>
-        <div className="h-[40%] sm:h-[45%] flex justify-around items-center">
+        <div className="h-[40%] sm:h-[50%] flex justify-around items-center">
           <Image
             height={10000}
             width={10000}

@@ -1,30 +1,11 @@
 import LearningCard from "@/components/uncommon/LearningCard/LearningCard";
 import React from "react";
 import Image from "next/image";
+import Title from "@/components/common/Title";
 const Learning = () => {
   return (
     <>
-      <div className=" text-center bg-paleIvory sm:w-[100%] h-[17vh]  font-semibold flex justify-center items-center flex-col bg-30% tracking-[0.15em] bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
-        WHAT YOU’LL BE LEARNING
-        <svg
-          width="787"
-          height="3"
-          viewBox="0 0 787 3"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-[80%] sm:w-1/4"
-        >
-          <line
-            x1="1.5"
-            y1="1.5"
-            x2="785.5"
-            y2="1.5"
-            stroke="#9F2420"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
+      <Title color={"paleIvory"} value={"WHAT YOU'LL BE LEARNING"} />
       <div className="w-full h-[170vh] sm:h-[80vh] px-20 pb-16 flex flex-col sm:flex-row bg-paleIvory justify-center gap-10 items-center">
         <div className="h-[100%]  sm:w-[25%] flex justify-end  items-center flex-col z-1 relative">
           {/*  */}

@@ -25,7 +25,7 @@ const RetreatsEnrollment = () => {
       <div className="h-[80vh] w-full bg-white">
         <div className="flex justify-around flex-col items-center h-full w-full z-10">
           <div className="h-[80%] border-2 border-mahogany bg-white w-4/6  relative z-10">
-            <div className="h-[10%] text-center text-mahogany flex justify-around items-center font-semibold tracking-widest">
+            <div className="h-[20%]  text-center text-mahogany flex justify-around items-center font-semibold tracking-widest text-xl">
               ENROLL FOR THE COURSE
             </div>
             <div className="flex-col bg-white sm:flex-row h-[33%] sm:h-[25%] w-full flex justify-around items-center relative z-10">

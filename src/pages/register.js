@@ -4,6 +4,8 @@ import postHandler from "@/request-handlers/postHandler";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const router = useRouter();
@@ -24,22 +26,34 @@ const Register = () => {
     if (res.status === 1) {
       Cookies.set("jwt", res.data.jwt);
       router.push("/");
+    } else if (res.status === 0) {
+      toast.error(res.data.error.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return (
     <>
+      <ToastContainer />
       <div className="h-screen w-screen bg-paleIvory">
-        <div className="w-full h-full flex justify-around items-center">
-          <div className="w-1/2 h-full flex justify-around items-center bg-chakra-bg bg-no-repeat bg-[top_-13rem_left_-13rem]">
+        <div className="w-full h-full flex sm:flex-row flex-col justify-around items-center">
+          <div className="w-[100%] sm:w-1/2 h-[30%] sm:h-full flex justify-around items-center bg-chakra-bg bg-no-repeat bg-[top_-13rem_left_-13rem]">
             <Image
               height={100000}
               alt="logo"
               width={29999}
               src={"/Logo.png"}
-              className="w-full h-[30%] object-contain"
+              className="w-full h-[60%] sm:h-[30%] object-contain"
             />
           </div>
-          <div className="w-1/2 h-full flex justify-around items-center bg-chakra-bg bg-no-repeat bg-[bottom_-13rem_right_-13rem]">
+          <div className="w-[100%] sm:w-1/2 h-full flex justify-around items-center bg-chakra-bg bg-no-repeat bg-[bottom_-13rem_right_-13rem]">
             <div className="w-full h-[80%] flex justify-center gap-3 items-center flex-col">
               <div className="text-center">
                 <p className="text-2xl text-mahogany">Sign Up to YogicEscape</p>
@@ -100,7 +114,7 @@ const Register = () => {
                     type="button"
                     onClick={submitHandler}
                   >
-                    <span className="text-lg pt-[0.25rem]">Register</span>
+                    <span className="sm:text-lg  pt-[0.25rem]">Register</span>
                     <svg
                       className="stroke-current"
                       width="22"

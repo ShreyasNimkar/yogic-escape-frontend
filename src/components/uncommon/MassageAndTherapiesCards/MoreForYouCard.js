@@ -3,7 +3,7 @@ import Image from "next/image";
 const MoreForYouCard = () => {
   return (
     <>
-      <div className="h-[35vh] w-[45vw] sm:w-[40vw] sm:h-[30vh]  flex  flex-col sm:flex-row justify-around items-center">
+      <div className="cursor-pointer shadow-xl h-[35vh] w-[45vw] sm:w-[40vw] sm:h-[30vh]  flex  flex-col sm:flex-row justify-around items-center">
         <div className="w-[100%] sm:w-[40%] h-full overflow-hidden">
           <Image
             // src={`/c`}
@@ -82,7 +82,11 @@ const MoreForYouCard = () => {
               20+ Reviews
             </div>
             <p className="text-mahogany font-semibold">€89</p>
-            <p className="text-mahogany text-sm">Learn More</p>
+            <p className="   text-sm">
+              <span className="cursor-pointer hover:underline hover:text-mahogany">
+                Learn More
+              </span>
+            </p>
           </div>
         </div>
       </div>

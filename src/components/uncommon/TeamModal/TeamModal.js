@@ -58,7 +58,7 @@ const TeamModal = ({
                 {modalData.attributes.Experience}
               </span>
             </p>
-            <p className="sm:text-[0.5rem] text-xs">
+            <p className="text-[0.60rem] sm:text-xs">
               {modalData.attributes.About}
             </p>
           </div>

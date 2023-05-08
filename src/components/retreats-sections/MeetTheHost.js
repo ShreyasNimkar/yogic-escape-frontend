@@ -12,7 +12,7 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import Title from "../common/Title";
 
-const MeetTheTeam = () => {
+const MeetTheHost = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
   console.log(domain);
@@ -33,21 +33,11 @@ const MeetTheTeam = () => {
   useEffect(() => {
     meetTheTeamController();
   }, []);
-
   return (
     <>
-      <div className="bg-white bg-chakra-team-bg bg-no-repeat bg-50% sm:bg-20% sm:bg-[left_bottom_13rem] bg-[left_bottom_20rem]">
-        <Title color={"transparent"} value={"MEET THE TEAM"} />
-        <div className="h-[10vh] bg-transparent">
-          <div className="h-[100%] w-[100%] flex justify-around items-center text-center">
-            <div className="w-[70%] text-xs sm:text-base">
-              YogicEscape is a space designed to help you escape this malignant
-              lifestyle we have accepted as mundane with movement and prana
-              (breath).
-            </div>
-          </div>
-        </div>
-        <div className="h-[65vh] sm:h-[60vh] w-full  bg-transparent flex justify-around items-center">
+      <div className="bg-white ">
+        <Title color={"white"} value={"MEET THE HOSTS"} />
+        <div className="h-[65vh] sm:h-[50vh] w-full  bg-transparent flex justify-around items-center">
           <div className="h-[100%] sm:h-[100%] w-full flex flex-col sm:flex-row gap-3 justify-around items-center">
             <CarouselProvider
               className="lg:flex hidden h-full w-full  justify-around items-center"
@@ -341,32 +331,8 @@ const MeetTheTeam = () => {
           </div>
         </div>
       </div>
-      <div className="h-[10vh] flex justify-around items-center">
-        <button
-          className="flex justify-around items-center bg-mahogany border-mahogany text-white border-2  hover:bg-white hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs  px-3 gap-1 py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
-          type="button"
-        >
-          <span className="text-base pt-[0.25rem]">LEARN</span>
-          <svg
-            className="stroke-current"
-            width="22"
-            height="22"
-            viewBox="0 0 22 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.24988 16.5L13.7499 11L8.24988 5.5"
-              // stroke="#9F2420"
-              strokeWidth="1.83333"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
     </>
   );
 };
 
-export default MeetTheTeam;
+export default MeetTheHost;

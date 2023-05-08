@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import postHandler from "@/request-handlers/postHandler";
 import SectionDivider from "../common/SectionDivider";
+import Title from "../common/Title";
 const NewsLetter = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
@@ -28,27 +29,7 @@ const NewsLetter = () => {
   };
   return (
     <>
-      <div className=" text-center sm:w-[100%] h-[20vh]  font-semibold flex justify-center items-center flex-col bg-30% bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
-        SUBSCRIBE TO OUR NEWSLETTER
-        <svg
-          width="787"
-          height="3"
-          viewBox="0 0 787 3"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-[80%] sm:w-1/4"
-        >
-          <line
-            x1="1.5"
-            y1="1.5"
-            x2="785.5"
-            y2="1.5"
-            stroke="#9F2420"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
+      <Title color={"white"} value={"SUBSCRIBE TO OUR NEWSLETTER"} />
       <div className="h-[60vh] w-full bg-white">
         <div className="flex justify-around items-center h-[90%] w-full z-10">
           <div className="h-[100%] w-4/6 bg-paleIvory relative z-10">
