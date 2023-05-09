@@ -15,8 +15,6 @@ import Title from "../common/Title";
 const MeetTheTeam = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
-  console.log(domain);
-  console.log(process.env.NEXT_PUBLIC_DOMAIN);
   const [memberData, setmemberData] = useState([]);
   const meetTheTeamController = async () => {
     const headers = {
@@ -24,7 +22,7 @@ const MeetTheTeam = () => {
       "ngrok-skip-browser-warning": true,
     };
     const URL = `https://${domain}/api/team-members?populate=*`;
-    console.log(URL);
+
     const res = await axios.get(URL, { headers });
 
     const members = res.data.data;

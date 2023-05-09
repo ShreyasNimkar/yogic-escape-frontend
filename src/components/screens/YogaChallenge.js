@@ -5,7 +5,7 @@ import HeroSection from "../about-us-sections/yoga-challenge-sections/HeroSectio
 import PostHeroSection from "../about-us-sections/yoga-challenge-sections/PostHeroSection";
 import Learning from "../about-us-sections/yoga-challenge-sections/Learning";
 import EnrollmentForm from "../about-us-sections/yoga-challenge-sections/EnrollmentForm";
-import Testimonials from "../about-us-sections/yoga-challenge-sections/Testimonials";
+import Testimonials from "../common/Testimonials";
 
 const YogaChallenge = () => {
   return (

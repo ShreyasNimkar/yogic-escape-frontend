@@ -10,13 +10,11 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { useState } from "react";
-import CallUs from "../common/CallUs";
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   const handleSlideChange = (newIndex) => {
-    console.log(newIndex);
     setActiveIndex(newIndex);
   };
 
@@ -27,7 +25,7 @@ const Testimonials = () => {
   ];
   return (
     <>
-      <div className=" text-center bg-paleIvory sm:w-[100%] h-[17vh]  font-semibold flex justify-center items-center flex-col bg-30% tracking-[0.15em] bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
+      <div className=" text-center bg-white sm:w-[100%] h-[17vh]  font-semibold flex justify-center items-center flex-col bg-30% tracking-[0.15em] bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
         TESTIMONIALS
         <svg
           width="787"
@@ -48,18 +46,18 @@ const Testimonials = () => {
           />
         </svg>
       </div>
-      <div className="h-[40vh] sm:h-[60vh]">
+      <div className="h-[60vh]">
         <CarouselProvider
-          className="h-[100%] w-full justify-around items-center bg-paleIvory"
+          className="h-full w-full justify-around items-center"
           naturalSlideWidth={100}
-          naturalSlideHeight={75}
+          naturalSlideHeight={50}
           totalSlides={quotes.length}
           infinite={true}
           currentSlide={activeIndex}
           //   onSlideChange={handleSlideChange}
         >
-          <div className="h-[90%] flex justify-around items-center">
-            <ButtonBack className="h-full">
+          <div className="h-[80%] flex justify-around items-center">
+            <ButtonBack>
               <svg
                 width="25"
                 height="25"
@@ -76,21 +74,21 @@ const Testimonials = () => {
                 ></path>
               </svg>
             </ButtonBack>
-            <Slider className="h-[100%] w-[80%] bg-paleIvory">
+            <Slider className="h-[100%] w-[80%]">
               {quotes.map((quote, index) => (
-                <Slide index={0} key={index + 23421331}>
-                  <div className="h-[200%] bg-paleIvory sm:h-full w-full text-center">
-                    <div className="w-full h-[50%] sm:h-[30%] text-2xl font-Quasonnnn">
-                      <p>{quote}</p>
+                <Slide index={index} key={index}>
+                  <div className="h-full   w-full text-center">
+                    <div className="w-full font-Quasonnnn flex justify-around items-center h-[50%] text-2xl">
+                      {quote}
                     </div>
-                    <div className="w-full h-[50%] sm:h-[30%] text-mahogany">
+                    <div className="w-full h-[50%] text-mahogany">
                       ~Joulie, A doctor
                     </div>
                   </div>
                 </Slide>
               ))}
             </Slider>
-            <ButtonNext className="h-full">
+            <ButtonNext>
               <svg
                 width="25"
                 height="25"
@@ -119,7 +117,6 @@ const Testimonials = () => {
           </div>
         </CarouselProvider>
       </div>
-      <CallUs />
     </>
   );
 };

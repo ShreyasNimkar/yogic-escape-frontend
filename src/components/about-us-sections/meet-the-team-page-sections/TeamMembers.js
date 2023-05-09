@@ -7,7 +7,7 @@ const TeamMembers = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
   const [memberData, setmemberData] = useState([]);
-  // console.log(memberData);
+
   const meetTheTeamController = async () => {
     const headers = {
       "Content-Type": "application/json",
@@ -17,7 +17,6 @@ const TeamMembers = () => {
     const res = await axios.get(URL, { headers });
     const members = res.data.data;
     setmemberData(members);
-    console.log(members);
   };
   useEffect(() => {
     meetTheTeamController();

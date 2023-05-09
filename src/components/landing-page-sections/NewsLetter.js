@@ -22,9 +22,8 @@ const NewsLetter = () => {
       },
     };
     const res = await postHandler(URL, formdata, false);
-    console.log(res);
+
     if (res.status === 1) {
-      console.log(res.data);
     }
   };
   return (
