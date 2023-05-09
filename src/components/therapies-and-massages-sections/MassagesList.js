@@ -14,12 +14,11 @@ const MassagesList = () => {
     const URL = `https://${domain}/api/massages`;
     const res = await axios.get(URL, { headers });
     const massages = res.data.data;
-    console.log(massages);
+
     setMassagesData(massages);
   };
   useEffect(() => {
     massagesController();
-    console.log(massagesData);
   }, []);
   return (
     <>

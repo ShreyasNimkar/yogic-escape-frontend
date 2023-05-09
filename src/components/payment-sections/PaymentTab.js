@@ -5,7 +5,6 @@ import BookingConfirm from "./BookingConfirm";
 import { useState } from "react";
 import AdvanceBooking from "./AdvanceBooking";
 const PaymentTab = ({ props }) => {
-  console.log(props);
   const [tabNumber, setTabNumber] = useState(0);
   const tabs = [
     {

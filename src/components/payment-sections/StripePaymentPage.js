@@ -15,7 +15,7 @@ const StripePaymentPage = ({ clientSecret }) => {
     clientSecret,
     appearance,
   };
-  console.log(clientSecret);
+
   return (
     <>
       <div className="h-full w-full">

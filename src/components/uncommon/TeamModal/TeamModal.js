@@ -11,9 +11,6 @@ const TeamModal = ({
 }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
-  console.log(memberData);
-  console.log(modalData);
-
   const handleOnClose = (el) => {
     if (el.target.id === "modalcontainer") onCloseFunc();
   };
@@ -36,7 +33,7 @@ const TeamModal = ({
             onClick={() => {
               const newId = modalData.id - 1;
               const el = memberData[newId - 1];
-              // console.log(el);
+
               if (el) setModalDataFunc(el);
             }}
           >
@@ -83,7 +80,7 @@ const TeamModal = ({
             onClick={() => {
               const newId = modalData.id;
               const el = memberData[newId + 1];
-              // console.log(el);
+
               if (el) setModalDataFunc(el);
             }}
           >

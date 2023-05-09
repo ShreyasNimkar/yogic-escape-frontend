@@ -33,7 +33,7 @@ const HomePageTabs = () => {
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
     const URL = `https://${domain}/api/retreats?populate=*&sort=Date&pagination[pageSize]=2`;
-    console.log(URL);
+
     const res = await axios.get(URL, { headers });
 
     const members = res.data.data;

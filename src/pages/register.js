@@ -20,9 +20,9 @@ const Register = () => {
     formdata.append("email", email);
     formdata.append("username", username);
     formdata.append("password", password);
-    console.log(formdata);
+
     const res = await postHandler(URL, formdata, false);
-    console.log(res);
+
     if (res.status === 1) {
       Cookies.set("jwt", res.data.jwt);
       router.push("/");

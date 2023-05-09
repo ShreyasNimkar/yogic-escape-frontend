@@ -5,7 +5,7 @@ const StripePayment = () => {
   const router = useRouter();
   const props = router.query;
   const clientSecret = props.clientSecret;
-  console.log(props);
+
   return (
     <>
       <StripePaymentPage clientSecret={clientSecret} />

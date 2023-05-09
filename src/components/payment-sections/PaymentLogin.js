@@ -19,9 +19,8 @@ const PaymentLogin = ({ setTabNumber }) => {
     formdata.append("password", password);
 
     const res = await postHandler(URL, formdata, false);
-    console.log(res);
+
     if (res.status === 1) {
-      // console.log(res.data);
       Cookies.set("jwt", res.data.jwt);
       setTabNumber(1);
     } else if (res.status === 0) {

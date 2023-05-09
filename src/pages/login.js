@@ -16,7 +16,7 @@ const Login = () => {
     formdata.append("password", password);
 
     const res = await postHandler(URL, formdata, false);
-    console.log(res);
+
     if (res.status === 1) {
       Cookies.set("jwt", res.data.jwt);
     } else if (res.status === 0) {
