@@ -14,7 +14,7 @@ const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
         className="w-[80%] sm:w-[20%]  h-full cursor-pointer relative"
       >
         <div className="h-[45vh] w-full text-[#FFE4AD] bg-mahogany opacity-0 transition-all duration-300 ease-in-out font-extralight hover:opacity-100 flex flex-col justify-center items-center absolute  top-0">
-          <div class="text-xs  h-[60%] px-3">
+          <div className="text-xs  h-[60%] px-3">
             <p className="line-clamp-[9]"> {el.attributes.About}</p>
           </div>
           <div className="h-[20%] font-normal text-[#F6C460] w-full underline text-sm flex justify-around items-center">

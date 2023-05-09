@@ -14,16 +14,16 @@ const CallUs = () => {
           <path
             d="M8 8.71436H40C42.2 8.71436 44 10.5144 44 12.7144V36.7144C44 38.9144 42.2 40.7144 40 40.7144H8C5.8 40.7144 4 38.9144 4 36.7144V12.7144C4 10.5144 5.8 8.71436 8 8.71436Z"
             stroke="#9F2420"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M44 12.7144L24 26.7144L4 12.7144"
             stroke="#9F2420"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>

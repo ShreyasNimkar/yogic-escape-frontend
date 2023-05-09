@@ -1,5 +1,11 @@
 import React from "react";
 import {
+  useWindowSize,
+  useWindowWidth,
+  useWindowHeight,
+} from "@react-hook/window-size";
+
+import {
   CarouselProvider,
   Slider,
   Slide,
@@ -9,20 +15,33 @@ import {
   DotGroup,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSlideChange = (newIndex) => {
     setActiveIndex(newIndex);
   };
+
+  const [width, height] = useWindowSize();
+  const onlyWidth = useWindowWidth();
+  const onlyHeight = useWindowHeight();
+  const [slideHeight, setslideHeight] = useState(230);
 
   const quotes = [
     "“Our space is designed to help you escape this malignant lifestyle we have accepted as mundane”",
     "Quote 2",
     "Quote 3",
   ];
+  useEffect(() => {
+    console.log(onlyWidth);
+    if (onlyWidth < 640) {
+      setslideHeight(230);
+    } else {
+      setslideHeight(50);
+    }
+  }, []);
   return (
     <>
       <div className=" text-center bg-white sm:w-[100%] h-[17vh]  font-semibold flex justify-center items-center flex-col bg-30% tracking-[0.15em] bg-no-repeat gap-2 bg-[center_bottom_2rem] text-2xl">
@@ -50,7 +69,7 @@ const Testimonials = () => {
         <CarouselProvider
           className="h-full w-full justify-around items-center"
           naturalSlideWidth={100}
-          naturalSlideHeight={50}
+          naturalSlideHeight={slideHeight}
           totalSlides={quotes.length}
           infinite={true}
           currentSlide={activeIndex}

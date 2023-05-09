@@ -53,8 +53,9 @@ const GiftCard = () => {
                 amount.map((el, index) => {
                   if (selectedAmount === el)
                     return (
-                      <>
+                      <React.Fragment key={el}>
                         <button
+                          key={index}
                           className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-2 sm:gap-6 py-1 w-[20%] outline-none focus:outline-none  ease-linear transition-all duration-150"
                           type="button"
                           onClick={() => {
@@ -65,12 +66,13 @@ const GiftCard = () => {
                             €{el}
                           </span>
                         </button>
-                      </>
+                      </React.Fragment>
                     );
                   else {
                     return (
-                      <>
+                      <React.Fragment key={el}>
                         <button
+                          key={index}
                           className="flex justify-between items-center bg-white border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-2 sm:gap-6 py-1 w-[20%] outline-none focus:outline-none  ease-linear transition-all duration-150"
                           type="button"
                           onClick={() => {
@@ -81,7 +83,7 @@ const GiftCard = () => {
                             €{el}
                           </span>
                         </button>
-                      </>
+                      </React.Fragment>
                     );
                   }
                 })}
@@ -94,7 +96,7 @@ const GiftCard = () => {
                 recipient.map((el, index) => {
                   if (selectedRecipient === el)
                     return (
-                      <>
+                      <React.Fragment key={el}>
                         <button
                           className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-8 sm:gap-6 py-1 w-max outline-none focus:outline-none  ease-linear transition-all duration-150"
                           type="button"
@@ -106,11 +108,11 @@ const GiftCard = () => {
                             {el}
                           </span>
                         </button>
-                      </>
+                      </React.Fragment>
                     );
                   else {
                     return (
-                      <>
+                      <React.Fragment key={el}>
                         <button
                           className="flex justify-between items-center bg-white border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-8 sm:gap-6 py-1 w-max outline-none focus:outline-none  ease-linear transition-all duration-150"
                           type="button"
@@ -122,7 +124,7 @@ const GiftCard = () => {
                             {el}
                           </span>
                         </button>
-                      </>
+                      </React.Fragment>
                     );
                   }
                 })}

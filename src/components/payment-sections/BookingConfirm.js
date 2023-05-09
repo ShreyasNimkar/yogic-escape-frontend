@@ -16,9 +16,9 @@ const BookingConfirm = () => {
             <path
               d="M35.6667 16.2554L19.3958 32.5262L12 25.1304"
               stroke="white"
-              stroke-width="2.95833"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2.95833"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <p className="font-Quasonnnn tracking-widest text-lg">
@@ -54,16 +54,16 @@ const BookingConfirm = () => {
                     <path
                       d="M21.0859 10.2549C21.0859 17.2549 12.0859 23.2549 12.0859 23.2549C12.0859 23.2549 3.08594 17.2549 3.08594 10.2549C3.08594 7.86793 4.03415 5.57875 5.72198 3.89092C7.4098 2.20309 9.69899 1.25488 12.0859 1.25488C14.4729 1.25488 16.7621 2.20309 18.4499 3.89092C20.1377 5.57875 21.0859 7.86793 21.0859 10.2549Z"
                       stroke="#9F2420"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M12.0859 13.2549C13.7428 13.2549 15.0859 11.9117 15.0859 10.2549C15.0859 8.59803 13.7428 7.25488 12.0859 7.25488C10.4291 7.25488 9.08594 8.59803 9.08594 10.2549C9.08594 11.9117 10.4291 13.2549 12.0859 13.2549Z"
                       stroke="#9F2420"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </g>
                   <defs>
