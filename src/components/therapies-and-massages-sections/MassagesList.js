@@ -1,8 +1,10 @@
 import React from "react";
 import MassagesCard from "../uncommon/MassageAndTherapiesCards/MassagesCard";
 import { useState, useEffect } from "react";
+
 import axios from "axios";
 const MassagesList = () => {
+  const [filterSelected, setfilterSelected] = useState("ALL");
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const [massagesData, setMassagesData] = useState([]);
   const massagesController = async () => {
@@ -20,18 +22,46 @@ const MassagesList = () => {
   useEffect(() => {
     massagesController();
   }, []);
+
   return (
     <>
       <div className="h-[30vh] flex justify-around items-center flex-col bg-white">
         <div className="h-[60%] flex justify-around items-center flex-col">
           <div className="flex w-full justify-center gap-10 items-center">
-            <div className="w-[1/3] text-mahogany bg-50% p-[1rem] bg-ellipse-yellow-bg bg-no-repeat  bg-[top_0.6rem_left_0.6rem]">
+            <div
+              onClick={() => {
+                setfilterSelected("ALL");
+              }}
+              className={`w-[1/3]  bg-50% p-[1rem]  hover:text-mahogany cursor-pointer${
+                filterSelected === "ALL"
+                  ? "text-mahogany bg-ellipse-yellow-bg bg-no-repeat bg-[top_0.6rem_left_0.6rem] "
+                  : ""
+              }`}
+            >
               ALL
             </div>
-            <div className="w-[1/3] text-mahogany bg-25% p-[1rem] bg-ellipse-yellow-bg bg-no-repeat  bg-[top_0.6rem_left_3.5rem]">
+            <div
+              onClick={() => {
+                setfilterSelected("BEST SELLING");
+              }}
+              className={`w-[1/3]  p-[1rem] hover:text-mahogany cursor-pointer  ${
+                filterSelected === "BEST SELLING"
+                  ? "text-mahogany bg-25% bg-ellipse-yellow-bg bg-no-repeat  bg-[top_0.6rem_left_3.5rem]"
+                  : ""
+              }`}
+            >
               BEST SELLING
             </div>
-            <div className="w-[1/3] text-mahogany bg-40% p-[1rem] bg-ellipse-yellow-bg bg-no-repeat  bg-[top_0.6rem_left_0.8rem]">
+            <div
+              onClick={() => {
+                setfilterSelected("NEW");
+              }}
+              className={`w-[1/3]  p-[1rem] hover:text-mahogany cursor-pointer  ${
+                filterSelected === "NEW"
+                  ? "text-mahogany bg-50% bg-ellipse-yellow-bg bg-no-repeat  bg-[top_0.6rem_left_1.2rem]"
+                  : ""
+              }`}
+            >
               NEW
             </div>
           </div>
@@ -47,8 +77,8 @@ const MassagesList = () => {
       <div className="h-full w-full bg-white">
         <div className="h-full w-full flex justify-center items-center flex-row sm:flex-row flex-wrap py-[2rem] px-[0.5rem] sm:px-[5rem] gap-x-5 gap-y-7">
           {massagesData &&
-            massagesData.map((el) => (
-              <MassagesCard key={el.id} props={el.attributes} />
+            massagesData.map((el, index) => (
+              <MassagesCard key={index} id={el.id} props={el.attributes} />
             ))}
         </div>
       </div>

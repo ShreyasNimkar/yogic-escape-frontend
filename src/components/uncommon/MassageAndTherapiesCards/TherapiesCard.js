@@ -2,35 +2,38 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 const TherapiesCard = ({ props }) => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const router = useRouter();
   const onClickHandler = () => {
     router.push({
-      pathname: "/payment",
-      query: props,
+      pathname: "/therapy",
+      query: props.id,
     });
   };
+  console.log(props);
   return (
     <>
-      <div className="h-[30vh] w-[45vw] sm:w-[25vw] sm:h-[50vh] ">
-        <div className="h-[40%] overflow-hidden">
+      <div className="h-[30vh]  w-[45vw] sm:w-[25vw] sm:h-[50vh] ">
+        <div className="h-[40%]  overflow-hidden">
           <Image
             // src={`/c`}
-            src={"/chakra.svg"}
+            // src={`http://${domain}${props.image.data.attributes.url}`}
             alt="Team"
             height={10000}
             width={10000}
-            className="h-auto w-full "
+            className="h-[16vh] sm:h-[25vh] w-full object-cover"
           />
         </div>
-        <div className="h-[60%] flex justify-around items-center sm:py-3 sm:px-4 bg-paleIvory">
+        <div className="h-max  flex justify-around items-center py-2 sm:py-4 sm:px-3 bg-paleIvory ">
           <div>
-            <p className="text-sm">SOUND HEALING TRAINING</p>
+            <p className="text-sm">
+              {props.attributes.therapy_type.data.attributes.name}
+            </p>
             <p className="text-xs text-textGray py-2 sm:block hidden">
-              Help relieve back pain and soreness that often occur during
-              pregnancy.
+              {props.attributes.therapy_type.data.attributes.description}
             </p>
             <div className="flex justify-around items-center text-sm">
-              1 hour
+              {props.attributes.therapy_type.data.attributes.time}
               <svg
                 width="8"
                 height="9"
@@ -89,7 +92,9 @@ const TherapiesCard = ({ props }) => {
               </svg>
               <span className="hidden sm:block">20+ Reviews</span>
             </div>
-            <p className="text-mahogany font-semibold">€89</p>
+            <p className="text-mahogany font-semibold">
+              €{props.attributes.therapy_type.data.attributes.price}
+            </p>
             <button
               className="flex justify-between items-center text-mahogany border-[0.15rem] border-mahogany hover:bg-mahogany hover:text-white font-bold py-2 px-3 text-xs   outline-none focus:outline-none  ease-linear transition-all duration-150"
               type="button"

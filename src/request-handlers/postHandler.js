@@ -7,7 +7,7 @@ const postHandler = async (URL, formData, protect) => {
     "ngrok-skip-browser-warning": true,
     // "Access-Control-Allow-Origin": "http://localhost:3000",
   };
-  if (protect) headers.Authorization = `Bearer ${Cookies.get("token")}`;
+  if (protect) headers.Authorization = `Bearer ${Cookies.get("jwt")}`;
   const response = {
     status: 0,
     data: {},

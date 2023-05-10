@@ -2,9 +2,33 @@ import React from "react";
 import InputTextField from "../common/InputTextField";
 import PaymentLogin from "./PaymentLogin";
 import BookingConfirm from "./BookingConfirm";
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import AdvanceBooking from "./AdvanceBooking";
+import { useRouter } from "next/router";
 const PaymentTab = ({ props }) => {
+  const router = useRouter();
+  const props2 = router.query;
+  console.log(props2);
+  const slotID = props.id != undefined ? props.id : props2.id;
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const [slotData, setslotData] = useState([]);
+  const slotsController = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+    };
+    const URL = `https://${domain}/api/massages?filters[massage_type][id][$eq]=${slotID}`;
+    const res = await axios.get(URL, { headers });
+    const slots = res.data.data;
+
+    setslotData(slots);
+  };
+  useEffect(() => {
+    slotsController();
+  }, []);
+  console.log(slotData);
   const [tabNumber, setTabNumber] = useState(0);
   const tabs = [
     {
@@ -45,7 +69,13 @@ const PaymentTab = ({ props }) => {
     {
       index: 2,
       label: "SELECT TIME & DATE",
-      content: <AdvanceBooking props={props} setTabNumber={setTabNumber} />,
+      content: (
+        <AdvanceBooking
+          slotData={slotData}
+          props={props}
+          setTabNumber={setTabNumber}
+        />
+      ),
       activesvg: (
         <svg
           width="26"

@@ -3,13 +3,97 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Cookies from "js-cookie";
 import MarkdownRenderer from "../common/MarkDownRenderer";
+import postHandler from "@/request-handlers/postHandler";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const BlogPage = ({ props }) => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const [commentArray, setCommentArray] = useState(
     props.attributes.comments.data
   );
+  const likeURL = `https://${domain}/api/likes`;
+  const commentURL = `https://${domain}/api/comments`;
+  const blogId = props.id;
   const [likeArray, setLikeArray] = useState(props.attributes.likes.data);
+  const [likesCount, setLikesCount] = useState(likeArray.length);
+  const [commentsCount, setCommentsCount] = useState(commentArray.length);
+  const [isLiked, setIsLiked] = useState(false);
+  const [commentText, setCommentText] = useState("");
+  useEffect(() => {
+    const likedBlogs = JSON.parse(Cookies.get("likedBlogs") || "[]");
+    setIsLiked(likedBlogs.includes(blogId));
+  }, []);
+
+  const likeHandler = async () => {
+    if (!isLiked) {
+      const formData = {
+        data: {
+          blog: {
+            connect: [blogId],
+          },
+        },
+      };
+
+      const res = await postHandler(likeURL, formData, false);
+
+      if (res.status === 1) {
+        // Update the likedBlogs cookie
+        const likedBlogs = JSON.parse(Cookies.get("likedBlogs") || "[]");
+        likedBlogs.push(blogId);
+        Cookies.set("likedBlogs", JSON.stringify(likedBlogs), { expires: 365 });
+        setIsLiked(true);
+        setLikesCount(likesCount + 1);
+      }
+    }
+  };
+
+  const commentHandler = async () => {
+    const formData = {
+      data: {
+        content: commentText,
+        blog: {
+          connect: [blogId],
+        },
+      },
+    };
+    const res = await postHandler(commentURL, formData, true);
+    console.log(res);
+    if (res.status === 0) {
+      toast.info("You must be logged in to comment !", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast.success("Commented Successfully :)", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      const newComment = {
+        id: res.data.id,
+        attributes: {
+          content: commentText,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+      };
+      setCommentArray([...commentArray, newComment]);
+      setCommentText(""); // Clear the comment text input
+    }
+  };
 
   const newDatePublished = new Date(
     props.attributes.createdAt
@@ -18,20 +102,14 @@ const BlogPage = ({ props }) => {
     month: "short",
     year: "numeric",
   });
-  console.log(props);
+
   const [liked, setliked] = useState("none");
-  const likeHandler = () => {
-    if (liked == "none") {
-      setliked("#9F2420");
-    } else {
-      setliked("none");
-    }
-  };
 
   //
 
   return (
     <>
+      <ToastContainer />
       <div className="w-full h-[7vh] sm:h-[5vh] flex-col sm:flex-row px-10 sm:px-44 flex justify-start gap-0 items-start sm:items-center mt-14">
         <div className="flex justify-start sm:gap-x-3 items-start sm:h-full sm:w-[28%]">
           <div className="h-full w-[30%] sm:w-[20%] flex justify-start  items-center">
@@ -73,13 +151,13 @@ const BlogPage = ({ props }) => {
             <div className="flex text-lg text-textGray  justify-start items-center">
               {props.attributes.views} views | &nbsp;{commentArray.length}
               &nbsp;comments |&nbsp;
-              {likeArray.length}
+              {likesCount}
             </div>
             <svg
               width="17"
               height="17"
               viewBox="0 0 19 19"
-              fill={`${liked}`}
+              fill={isLiked ? "#9F2420" : "none"}
               xmlns="http://www.w3.org/2000/svg"
               onClick={() => {
                 likeHandler();
@@ -141,17 +219,41 @@ const BlogPage = ({ props }) => {
           </div>
         </div>
       </div>
-      <div className="px-10 sm:px-44 text-[#C4C4C4] sm:mb-16">
+      <div className="px-10 sm:px-44 text-textGray sm:mb-2">
         <label
           htmlFor="large-input"
           className="block text-sm font-medium "
         ></label>
         <input
+          onChange={(el) => {
+            setCommentText(el.target.value);
+          }}
+          onKeyDown={(el) => {
+            if (el.key === "Enter") {
+              commentHandler();
+            }
+          }}
           type="text"
           id="large-input"
+          value={commentText}
           placeholder="Write a comment ..."
           className="block w-full p-3 border-[#C4C4C4]  border-[1.5px] sm:text-md  "
         />
+      </div>
+      <div className="flex justify-start flex-col  sm:mb-16 items-center px-10 sm:px-44 py-1">
+        <div className="text-base tracking-widest font-medium">
+          - Comments -
+        </div>
+        {commentArray &&
+          commentArray.map((el, index) => {
+            return (
+              <>
+                <div className="w-full text-xs text-textGray py-[0.1rem]">
+                  &quot;{el.attributes.content}&quot;
+                </div>
+              </>
+            );
+          })}
       </div>
     </>
   );

@@ -1,15 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-const ProductTab = ({ props }) => {
-  const router = useRouter();
-  const onClickHandler = () => {
-    router.push({
-      pathname: "/payment",
-      query: props,
-    });
-  };
+import { useState, useEffect } from "react";
+import axios from "axios";
+const TherapyTab = ({ props }) => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const [therapiesData, setTherapiesData] = useState([]);
+  const therapiesController = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
+      // "Access-Control-Allow-Origin": "http://localhost:3000",
+    };
+    const URL = `https://${domain}/api/therapies?populate=*`;
+    const res = await axios.get(URL, { headers });
+    const therapies = res.data.data;
 
+    setTherapiesData(therapies);
+    // console.log(therapiesData);
+  };
+  useEffect(() => {
+    therapiesController();
+  }, []);
   return (
     <>
       <div className="h-max py-10 w-full flex justify-around items-center bg-paleIvory">
@@ -29,15 +41,16 @@ const ProductTab = ({ props }) => {
               <div className="h-max w-full sm:w-full">
                 <p className="text-sm pb-2">Whats here ???/</p>
                 <p className="text-xl pb-3 font-semibold  tracking-widest">
-                  {props.name}
+                  {/* {props.name} */}
                 </p>
                 <p className="text-xs pb-3 text-textGray">
-                  {props.description}
+                  {/* {props.description} */}
                 </p>
                 <p className="text-sm pb-3">
-                  {props.time} <span>ads</span> 10 Reviews
+                  {/* {props.time} <span>ads</span> 10 Reviews */}
                 </p>
                 <p className="text-xl text-mahogany font-semibold">80E</p>
+
                 <p className="w-max h-max border-t-2 border-[#C4C4C4] pt-1 text-sm">
                   NEXT AVAILABILITY: whats thisssss left and right ?
                   <span className="text-mahogany">03 April 2023</span>
@@ -78,4 +91,4 @@ const ProductTab = ({ props }) => {
   );
 };
 
-export default ProductTab;
+export default TherapyTab;

@@ -7,7 +7,7 @@ const Payment = ({ props }) => {
   return (
     <>
       <Header />
-      <PaymentTab props={props} />
+      {props && <PaymentTab props={props} />}
       <Footer />
     </>
   );

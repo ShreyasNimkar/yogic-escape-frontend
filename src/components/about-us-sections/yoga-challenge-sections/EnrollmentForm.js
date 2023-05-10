@@ -68,7 +68,7 @@ const EnrollmentForm = () => {
                 type="button"
                 onClick={submitHandler}
               >
-                <span className="text-lg ">ENROLL</span>
+                <span className="text-lg pt-[0.25rem]">ENROLL</span>
                 <svg
                   className="stroke-current"
                   width="22"

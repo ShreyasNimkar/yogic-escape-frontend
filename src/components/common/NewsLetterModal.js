@@ -5,6 +5,7 @@ import InputTextField from "../common/InputTextField";
 import SectionDivider from "./SectionDivider";
 import { useState } from "react";
 import postHandler from "@/request-handlers/postHandler";
+import Title from "./Title";
 const NewsLetterModal = ({
   modalData,
   setModalDataFunc,
@@ -43,11 +44,19 @@ const NewsLetterModal = ({
       <div
         onClick={handleOnClose}
         id="modalcontainer"
-        className="fixed z-50 inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center"
+        className="fixed z-50 inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex-col flex items-center justify-center"
       >
-        <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory ">
+        <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 bg-paleIvory ">
           <div className="h-[100%] sm:h-[100%] w-full bg-white">
-            <div className="flex justify-around items-center h-[90%] w-full z-50">
+            <div className={`bg-paleIvory h-[15%]`}>
+              <div className="h-[100%] w-full text-center flex justify-center items-center flex-col text-2xl">
+                <p className="border-b-2 border-mahogany w-[80%] sm:w-max px-4 ">
+                  SUBSCRIBE TO OUR NEWSLETTER
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-around items-end h-[80%] w-full z-50">
               <div className="h-[100%] w-4/6 bg-paleIvory relative z-50">
                 <div className="h-[20%] overflow-hidden">
                   <SectionDivider />
@@ -62,13 +71,7 @@ const NewsLetterModal = ({
                       onChange={(v) => setFirstName(v.target.value)}
                     />
                   </div>
-                  {/* <Image
-                src="/chakra.svg"
-                alt="red-chakra"
-                height={10000}
-                width={10000}
-                className="h-[4rem] top-[-2rem] absolute w-full z-50"
-              /> */}
+
                   <div className="w-full sm:w-1/2 h-1/2 sm:h-full px-5 lg:px-16  flex justify-around items-center">
                     <InputTextField
                       label="Last Name"

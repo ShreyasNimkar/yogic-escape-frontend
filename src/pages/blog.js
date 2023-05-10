@@ -11,7 +11,7 @@ const Blog = () => {
   const router = useRouter();
   const props = router.query;
   const keys = parseInt(Object.keys(props));
-  console.log(keys);
+
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
   const [blogData, setBlogData] = useState(null);

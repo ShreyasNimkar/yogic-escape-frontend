@@ -73,7 +73,7 @@ const Footer = () => {
                 className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-paleIvory hover:text-mahogany active:bg-mahogany font-bold uppercase text-xs px-2 sm:px-4 gap-1 py-[0.1rem]  outline-none focus:outline-none  ease-linear transition-all duration-150"
                 type="button"
               >
-                <span className="text-lg">SUBSCRIBE</span>
+                <span className="text-lg pt-[0.25rem]">SUBSCRIBE</span>
                 <svg
                   className=" stroke-current hidden sm:block"
                   width="22"

@@ -6,8 +6,11 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-const AdvanceBooking = ({ props }) => {
+const AdvanceBooking = ({ props, slotData }) => {
   const router = useRouter();
+  console.log(slotData);
+
+  //cleaning slotData
 
   //Stripe Logic
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY);

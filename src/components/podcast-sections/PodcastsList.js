@@ -1,15 +1,19 @@
 import React from "react";
 import PodcastCard from "../uncommon/PodcastCard/PodcastCard";
 
-const PodcastsList = () => {
+const PodcastsList = ({ props }) => {
+  console.log(props);
   return (
     <>
       <div className="w-full flex h-full flex-wrap justify-around items-center px-3 sm:px- 20">
-        <PodcastCard />
-        <PodcastCard />
-
-        <PodcastCard />
-        <PodcastCard />
+        {props &&
+          props.map((el, index) => {
+            return (
+              <>
+                <PodcastCard el={el} index={index} />
+              </>
+            );
+          })}
       </div>
       <div className="flex justify-around items-center py-6">
         <button

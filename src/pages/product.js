@@ -1,12 +1,15 @@
 import Product from "@/components/screens/Product";
 import React from "react";
+import { useRouter } from "next/router";
+const ProductPage = () => {
+  const router = useRouter();
+  const props = router.query;
 
-const product = () => {
   return (
     <>
-      <Product />
+      <Product props={props} />
     </>
   );
 };
 
-export default product;
+export default ProductPage;
