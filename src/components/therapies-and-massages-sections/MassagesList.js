@@ -11,7 +11,7 @@ const MassagesList = () => {
       "ngrok-skip-browser-warning": true,
       // "Access-Control-Allow-Origin": "http://localhost:3000",
     };
-    const URL = `https://${domain}/api/massages`;
+    const URL = `https://${domain}/api/massage-types?populate=*`;
     const res = await axios.get(URL, { headers });
     const massages = res.data.data;
 

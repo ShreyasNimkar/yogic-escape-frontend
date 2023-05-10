@@ -1,7 +1,7 @@
 import React from "react";
 import InputTextField from "../common/InputTextField";
 import postHandler from "@/request-handlers/postHandler";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
@@ -39,6 +39,13 @@ const PaymentLogin = ({ setTabNumber }) => {
   const signUpHandler = () => {
     router.push("/register");
   };
+
+  useEffect(() => {
+    const jwtCookie = Cookies.get("jwt");
+    if (jwtCookie) {
+      setTabNumber(1);
+    }
+  }, [setTabNumber]);
   return (
     <>
       <ToastContainer />

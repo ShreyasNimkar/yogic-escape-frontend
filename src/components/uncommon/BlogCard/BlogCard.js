@@ -1,19 +1,63 @@
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import MarkdownRenderer from "@/components/common/MarkDownRenderer";
+import postHandler from "@/request-handlers/postHandler";
+const BlogCard = ({ el }) => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const likeURL = `https://${domain}/api/likes`;
+  const router = useRouter();
+  const blogId = el.id;
+  const newDatePublished = new Date(el.attributes.createdAt).toLocaleDateString(
+    "en-US",
+    { day: "numeric", month: "short", year: "numeric" }
+  );
 
-const BlogCard = () => {
-  const [liked, setliked] = useState("none");
-  const likeHandler = () => {
-    if (liked == "none") {
-      setliked("#9F2420");
-    } else {
-      setliked("none");
+  const [commentArray, setCommentArray] = useState(el.attributes.comments.data);
+  const [likeArray, setLikeArray] = useState(el.attributes.likes.data);
+  const [likesCount, setLikesCount] = useState(likeArray.length);
+  const [commentsCount, setCommentsCount] = useState(commentArray.length);
+  const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    const likedBlogs = JSON.parse(Cookies.get("likedBlogs") || "[]");
+    setIsLiked(likedBlogs.includes(blogId));
+  }, []);
+
+  const likeHandler = async () => {
+    if (!isLiked) {
+      const formData = {
+        data: {
+          blog: {
+            connect: [blogId],
+          },
+        },
+      };
+
+      const res = await postHandler(likeURL, formData, false);
+
+      if (res.status === 1) {
+        // Update the likedBlogs cookie
+        const likedBlogs = JSON.parse(Cookies.get("likedBlogs") || "[]");
+        likedBlogs.push(blogId);
+        Cookies.set("likedBlogs", JSON.stringify(likedBlogs), { expires: 365 });
+        setIsLiked(true);
+        setLikesCount(likesCount + 1);
+      }
     }
+  };
+
+  const blogOnClickHandler = () => {
+    router.push({
+      pathname: "/blog",
+      query: el.id,
+    });
   };
   return (
     <>
-      <div className="w-[90%] pt-6 sm:px-6 my-5 h-max bg-white">
+      <div className="drop-shadow-lg group w-[90%] cursor-pointer pt-6 sm:px-6 my-5 h-max bg-white">
         <div className="sm:h-[10%] flex flex-col sm:flex-row  justify-start gap-2 items-start sm:items-center">
           <div className="w-full sm:w-[30%] h-full flex justify-start gap-2 items-center">
             <div className="h-full w-[16%] flex justify-start  items-center">
@@ -26,39 +70,40 @@ const BlogCard = () => {
               />
             </div>
             <div className="text-center text-sm flex justify-around items-center">
-              YOGIC ESCAPE Berlin
+              {el.attributes.author}
             </div>
           </div>
+
           <div className="text-center text-textGray text-xs flex justify-around items-center">
-            22 Oct 2023 | 2 mins read
+            {newDatePublished}&nbsp; | &nbsp;{el.attributes.readTime}
           </div>
         </div>
-        <div className="h-[15%] text-xl text-mahogany text-center  flex justify-start items-center">
-          Practicing Pillars of Yoga
+        <div
+          onClick={() => {
+            blogOnClickHandler();
+          }}
+          className="h-[15%] text-xl text-mahogany text-center  flex justify-start items-center"
+        >
+          {el.attributes.name}
         </div>
         <div className="h-[50%] flex justify-around items-center">
           <div className="w-[80%] h-full">
             <div className="text-[#181818] h-max line-clamp-[4]  text-xs sm:text-sm">
-              The 3 pillars of Practicing Yoga: Pranayama, Meditation and Asanas
-              Yoga is a term that speaks to your body, soul and mind. It is an
-              endless journey from you, to you and through you. While the
-              practice of yoga may have begun for you.. The 3 pillars of
-              Practicing Yoga: Pranayama, Meditation and Asanas Yoga is a term
-              that speaks to your body, soul and mind. It is an endless journey
-              from you, to you and through you. While the practice of yoga may
-              have begun for you..
+              <MarkdownRenderer content={el.attributes.content} />
             </div>
 
             <div className="flex border-t-2 border-t-[#C4C4C4] py-2 justify-between gap-1 items-center h-[25%]">
               <div className="flex  justify-start gap-1 items-center h-full">
                 <div className="flex text-xs text-textGray  justify-start items-center">
-                  32 views | 0 comments | 3
+                  {el.attributes.views} views | &nbsp;{commentArray.length}
+                  &nbsp;comments |&nbsp;
+                  {likeArray.length}
                 </div>
                 <svg
                   width="14"
                   height="14"
                   viewBox="0 0 19 19"
-                  fill={`${liked}`}
+                  fill={isLiked ? "#9F2420" : "none"}
                   xmlns="http://www.w3.org/2000/svg"
                   onClick={() => {
                     likeHandler();
@@ -83,27 +128,27 @@ const BlogCard = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   className="cursor-pointer"
                 >
-                  <g clip-path="url(#clip0_805_8029)">
+                  <g clipPath="url(#clip0_805_8029)">
                     <path
                       d="M3.98047 9.10498V15.1133C3.98047 15.5117 4.13872 15.8937 4.42042 16.1754C4.70211 16.4571 5.08417 16.6154 5.48254 16.6154H14.495C14.8934 16.6154 15.2754 16.4571 15.5571 16.1754C15.8388 15.8937 15.9971 15.5117 15.9971 15.1133V9.10498"
                       stroke="#9F2420"
-                      stroke-width="1.50208"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.50208"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M12.9927 4.59888L9.98853 1.59473L6.98438 4.59888"
                       stroke="#9F2420"
-                      stroke-width="1.50208"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.50208"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M9.98828 1.59473V11.3582"
                       stroke="#9F2420"
-                      stroke-width="1.50208"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.50208"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </g>
                   <defs>
@@ -122,7 +167,10 @@ const BlogCard = () => {
           </div>
           <div className="w-[55%] sm:w-[20%] h-[60%] sm:h-[90%] p-2">
             <Image
-              src={"/ourStory.png"}
+              onClick={() => {
+                blogOnClickHandler();
+              }}
+              src={`http://${domain}${el.attributes.image.data.attributes.url}`}
               alt="Team"
               height={10000}
               width={10000}
@@ -131,7 +179,12 @@ const BlogCard = () => {
           </div>
         </div>
         <div className="h-max ">
-          <span className="hover:cursor-pointer text-lg hover:text-mahogany hover:underline">
+          <span
+            onClick={() => {
+              blogOnClickHandler();
+            }}
+            className="hover:cursor-pointer text-lg group-hover:text-mahogany hover:text-mahogany group-hover:underline"
+          >
             Read More
           </span>
         </div>

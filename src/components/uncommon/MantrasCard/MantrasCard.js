@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-const MantrasCard = () => {
+const MantrasCard = ({ el }) => {
   return (
     <>
       <div className="sm:w-[25%] w-[80%] h-[50vh] sm:h-[60vh]">

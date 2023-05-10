@@ -1,7 +1,24 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-const BlogPage = () => {
+import { useRouter } from "next/router";
+import axios from "axios";
+import MarkdownRenderer from "../common/MarkDownRenderer";
+const BlogPage = ({ props }) => {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const [commentArray, setCommentArray] = useState(
+    props.attributes.comments.data
+  );
+  const [likeArray, setLikeArray] = useState(props.attributes.likes.data);
+
+  const newDatePublished = new Date(
+    props.attributes.createdAt
+  ).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+  console.log(props);
   const [liked, setliked] = useState("none");
   const likeHandler = () => {
     if (liked == "none") {
@@ -10,6 +27,9 @@ const BlogPage = () => {
       setliked("none");
     }
   };
+
+  //
+
   return (
     <>
       <div className="w-full h-[7vh] sm:h-[5vh] flex-col sm:flex-row px-10 sm:px-44 flex justify-start gap-0 items-start sm:items-center mt-14">
@@ -24,86 +44,36 @@ const BlogPage = () => {
             />
           </div>
           <div className="text-center h-full w-full sm:ml-0 ml-2 sm:w-fit text-sm flex justify-start items-center">
-            YOGIC ESCAPE Berlin
+            {props.attributes.author}
           </div>
         </div>
         <div className="text-center text-textGray sm:text-xs flex justify-around items-center">
-          22 Oct 2023 | 2 mins read
+          {newDatePublished} | {props.attributes.readTime}
         </div>
       </div>
-      <div className="w-full h-[5vh] px-10 sm:px-44 text-xl text-mahogany text-center  flex justify-start items-center">
-        Practicing Pillars of Yoga
+      <div className="w-full h-max py-2 px-10 sm:px-44 text-xl text-mahogany text-center  flex justify-start items-center">
+        {props.attributes.name}
       </div>
       <div className=" w-full h-full flex justify-start items-center flex-col px-10 sm:px-44">
         <Image
-          src={"/ourStory.png"}
+          src={`http://${domain}${props.attributes.image.data.attributes.url}`}
           alt="Team"
           height={10000}
           width={10000}
           className="object-cover h-[25vh] sm:h-[40vh] w-full"
         />
       </div>
-      <div className="h-full w-full px-10 sm:px-44">
-        <p className="text-lg font-medium">
-          The 3 pillars of Practicing Yoga: Pranayama, Meditation and Asanas
-        </p>
-        <p>
-          Yoga is a term that speaks to your body, soul and mind. It is an
-          endless journey from you, to you and through you. While the practice
-          of yoga may have begun for you through its physical aspects of asanas,
-          it also engages with your mind and provides holistic benefits. One can
-          imagine yoga to be a flourishing tree with its roots deeply woven in
-          Asanas (physical postures), Meditations (calming of the mind) and
-          Pranayama (conscious breath control). All three are equally important
-          to master your yogic journey. You can choose to practice each pillar
-          of yoga in separate sessions or incorporate them in your practice
-          together. Mastering the Practice of Pranayama While the practice of
-          Pranayama is aimed at controlling your breathing, a practitioner can
-          also practice sitting comfortably and focusing their attention for an
-          extended period, performing breathing exercises correctly that
-          revitalizes your body and the spirit and also calms your mental state
-          of mind. One can master their basic Hatha yoga poses before working to
-          control the life force, i.e. controlling their breath through
-          pranayama. Embracing Breathing with Asanas According to the guidance
-          of the ancient Patanjali yoga sutra, a practitioner should not
-          initiate Pranayama before practising Asana but only when one is fully
-          relaxed in Shavasana and alert and not sleepy. That being said, a
-          simple breathing pattern is monitored when performing your asanas.
-          Later, practitioners can add gentle ujjayi breathing (victoriuos
-          breath) to the pose altering patterns of long and short inhalations
-          and exhalations to encourage a focus on breaths. Different schools of
-          yoga may teach and practice Pranayama along with different physical
-          postures or asanas. Depending on their school of belief the
-          implementation of pranayama in your asanas may differ. One can
-          practice Sukshma Vyama or light exercises to loosen up followed by
-          Asanas, Pranayama and then Meditation. Pranayama and Meditations are
-          not the same While the practice of pranayama and meditation may seem
-          similar, they aren’t the same. Working on the same technique involving
-          concentration and breathing, Meditation is a practice focusing on the
-          awareness of our thoughts and patterns, while pranayama is a practice
-          of refining breathing ability and creating awareness of the flow of
-          your breathing. Practising Asana, Pranayama & Meditation Beginning
-          your yoga session with a five-minute meditation allows you to practice
-          mindfulness using your breath as a reference point for being in the
-          present. The practice of mindfulness encourages you to focus on your
-          thoughts instead of getting rid of them, embracing them and letting go
-          of them as you come back to your breath. This can be followed by light
-          pranayama that relaxes your body and carries the fresh source of
-          energy in every part of your body. Later you can continue with a full
-          session of asanas with at least 10 minutes of shavasana (corpse pose)
-          to help you relax. Asanas help you in removing physical blockages in
-          the body and allow a free flow of energy. After you practice Asanas,
-          you can indulge in a longer session of pranayama and finally practice
-          30 minutes of seated meditation. Since the journey of yoga is deeply
-          rooted in you, the incorporation of Meditation, Asanas and Pranayama
-          in your lifestyle is largely dependent on yourself.
-        </p>
+      <div className="h-full w-full py-2 px-10 sm:px-44">
+        {/* content */}
+        <MarkdownRenderer content={props.attributes.content} />
       </div>
       <div className="px-10 sm:px-44 h-[10vh] text-textGray ">
         <div className="flex justify-between gap-1 items-center h-full">
           <div className="flex justify-start gap-1 items-center h-full">
             <div className="flex text-lg text-textGray  justify-start items-center">
-              32 views | 0 comments | 3
+              {props.attributes.views} views | &nbsp;{commentArray.length}
+              &nbsp;comments |&nbsp;
+              {likeArray.length}
             </div>
             <svg
               width="17"
@@ -134,27 +104,27 @@ const BlogPage = () => {
               xmlns="http://www.w3.org/2000/svg"
               className="cursor-pointer"
             >
-              <g clip-path="url(#clip0_805_8029)">
+              <g clipPath="url(#clip0_805_8029)">
                 <path
                   d="M3.98047 9.10498V15.1133C3.98047 15.5117 4.13872 15.8937 4.42042 16.1754C4.70211 16.4571 5.08417 16.6154 5.48254 16.6154H14.495C14.8934 16.6154 15.2754 16.4571 15.5571 16.1754C15.8388 15.8937 15.9971 15.5117 15.9971 15.1133V9.10498"
                   stroke="#9F2420"
-                  stroke-width="1.50208"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.50208"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M12.9927 4.59888L9.98853 1.59473L6.98438 4.59888"
                   stroke="#9F2420"
-                  stroke-width="1.50208"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.50208"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M9.98828 1.59473V11.3582"
                   stroke="#9F2420"
-                  stroke-width="1.50208"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.50208"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </g>
               <defs>
