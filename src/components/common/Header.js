@@ -188,8 +188,7 @@ const Header = () => {
           <div className="flex justify-around items-center w-[35%] sm:w-1/5">
             <Link href={"/"}>
               <Image
-                href={"/"}
-                src="/logo.png"
+                src="/logo.svg"
                 alt="logo"
                 height={10000}
                 width={10000}
