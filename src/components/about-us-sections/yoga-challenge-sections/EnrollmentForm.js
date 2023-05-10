@@ -2,6 +2,7 @@ import React from "react";
 import InputTextField from "../../common/InputTextField";
 import { useState } from "react";
 import CallUs from "@/components/common/CallUs";
+import postHandler from "@/request-handlers/postHandler";
 const EnrollmentForm = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
@@ -28,7 +29,7 @@ const EnrollmentForm = () => {
       <div className="h-[80vh] w-full bg-paleIvory">
         <div className="flex justify-around flex-col items-center h-full w-full z-10">
           <div className="h-[80%] border-2 border-mahogany bg-white w-4/6  relative z-10">
-            <div className="h-[10%] text-center text-mahogany flex justify-around items-center font-semibold tracking-widest">
+            <div className="h-max text-center text-mahogany flex justify-around items-center font-semibold tracking-widest py-8">
               ENROLL FOR THE COURSE
             </div>
             <div className="flex-col bg-white sm:flex-row h-[33%] sm:h-[25%] w-full flex justify-around items-center relative z-10">

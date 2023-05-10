@@ -35,7 +35,6 @@ const Testimonials = () => {
     "Quote 3",
   ];
   useEffect(() => {
-    console.log(onlyWidth);
     if (onlyWidth < 640) {
       setslideHeight(230);
     } else {

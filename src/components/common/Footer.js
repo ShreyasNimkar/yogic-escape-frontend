@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import NewsLetterModal from "./NewsLetterModal";
+import FacebookMessenger from "./FacebookMessenger";
 const Footer = () => {
   const socialMediaNavigations = [
     { name: "twitter" },
