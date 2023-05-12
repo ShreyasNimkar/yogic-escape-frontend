@@ -8,9 +8,8 @@ import AdvanceBooking from "./AdvanceBooking";
 import { useRouter } from "next/router";
 const PaymentTab = ({ props }) => {
   const router = useRouter();
-  const props2 = router.query;
-  console.log(props2);
-  const slotID = props.id != undefined ? props.id : props2.id;
+
+  const slotID = props.massageId;
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const [slotData, setslotData] = useState([]);
   const slotsController = async () => {
@@ -28,7 +27,7 @@ const PaymentTab = ({ props }) => {
   useEffect(() => {
     slotsController();
   }, []);
-  console.log(slotData);
+
   const [tabNumber, setTabNumber] = useState(0);
   const tabs = [
     {
@@ -69,10 +68,10 @@ const PaymentTab = ({ props }) => {
     {
       index: 2,
       label: "SELECT TIME & DATE",
-      content: (
+      content: slotData && slotData.length > 0 && (
         <AdvanceBooking
-          slotData={slotData}
           props={props}
+          slotData={slotData}
           setTabNumber={setTabNumber}
         />
       ),

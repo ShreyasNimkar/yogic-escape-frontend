@@ -17,6 +17,7 @@ const Recommendations = () => {
     const res = await axios.get(URL, { headers });
     const blogs = res.data.data;
     setMantraData(blogs);
+    console.log(blogs);
   };
   useEffect(() => {
     mantrasController();
@@ -25,13 +26,13 @@ const Recommendations = () => {
     <>
       <Title color={"whtie"} value={"OUR RECOMMENDATIONS"} />
       <div className="h-full">
-        <div className="h-[100%] flex justify-center gap-3 sm:gap-0 items-center flex-wrap sm:gap-x-10 ">
+        <div className="h-max py-10 flex justify-center gap-3 sm:gap-0 items-center flex-wrap sm:gap-x-10 ">
           {mantraData &&
-            mantraData.map((el) => {
+            mantraData.map((el, index) => {
               return (
-                <>
-                  <MantrasCard el={el} />;
-                </>
+                <React.Fragment key={index}>
+                  <MantrasCard el={el} />
+                </React.Fragment>
               );
             })}
         </div>

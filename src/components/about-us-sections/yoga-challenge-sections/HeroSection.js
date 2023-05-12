@@ -21,7 +21,7 @@ const HeroSection = () => {
                     className="flex justify-between items-center text-white border-[0.15rem] border-white hover:bg-white hover:text-mahogany font-bold  text-xs  px-3  py-2  outline-none focus:outline-none  ease-linear transition-all duration-150"
                     type="button"
                   >
-                    <span className="h-full w-full text-lg flex items-end justify-around ">
+                    <span className="h-full w-full text-lg flex items-end justify-around pt-[0.25rem]">
                       BOOK CLASS
                     </span>
                     <svg

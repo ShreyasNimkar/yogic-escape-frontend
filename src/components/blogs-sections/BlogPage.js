@@ -245,13 +245,13 @@ const BlogPage = ({ props }) => {
           - Comments -
         </div>
         {commentArray &&
-          commentArray.map((el, index) => {
+          commentArray.map((el) => {
             return (
-              <>
+              <React.Fragment key={el.id}>
                 <div className="w-full text-xs text-textGray py-[0.1rem]">
                   &quot;{el.attributes.content}&quot;
                 </div>
-              </>
+              </React.Fragment>
             );
           })}
       </div>

@@ -6,9 +6,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 const AdvanceBooking = ({ props, slotData }) => {
   const router = useRouter();
-  console.log(slotData);
+  console.log(props, slotData);
 
   //cleaning slotData
 
@@ -16,7 +17,7 @@ const AdvanceBooking = ({ props, slotData }) => {
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const [clientSecret, setClientSecret] = useState("");
-  const URL = `https://${domain}/api/orders`;
+  const URL = `https://${domain}/api/massage-orders`;
   // useEffect(() => {
   //   // Create PaymentIntent as soon as the page loads
   // }, []);
@@ -34,41 +35,71 @@ const AdvanceBooking = ({ props, slotData }) => {
   };
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState([]);
-  const [availableTime, setAvailableTime] = useState([
-    "12:32",
-    "55:32",
-    "32:34",
-  ]);
+  const [availableTime, setAvailableTime] = useState([]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-  };
+    console.log(selectedDate);
+    // Find the corresponding slotData for the selected date
+    const selectedSlot = slotData.find(
+      (slot) =>
+        new Date(slot.attributes.datetime).toISOString().split("T")[0] ===
+        date.toISOString().split("T")[0]
+    );
+    console.log(selectedSlot);
 
-  const timeOnClickHandler = (el) => {
-    setSelectedTime(el);
-  };
-
-  const bookNowHandler = (el) => {
-    fetch(URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: { name: "hello" },
-        type: "event",
-        id: 1,
-        attributes: {},
-      }),
-    })
-      .then((res) => res.json())
-
-      .then((data) => {
-        setClientSecret(data.clientSecret);
-        router.push({
-          pathname: "/stripepayment",
-          query: data,
-        });
+    if (selectedSlot) {
+      // Extract the time from the datetime and set it as availableTime
+      const time = new Date(
+        selectedSlot.attributes.datetime
+      ).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
       });
+      console.log(time);
+      setAvailableTime([time]);
+    } else {
+      setAvailableTime([]);
+    }
   };
+
+  const timeOnClickHandler = (time) => {
+    console.log("Selected Time:", time);
+    setSelectedTime(time);
+  };
+  const bookNowHandler = () => {
+    const selectedSlot = slotData.find(
+      (slot) =>
+        new Date(slot.attributes.datetime).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }) === selectedTime
+    );
+
+    if (selectedSlot) {
+      const selectedDateTimeId = selectedSlot.id;
+
+      fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${Cookies.get("jwt")}`,
+        },
+        body: JSON.stringify({
+          id: selectedDateTimeId,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setClientSecret(data.clientSecret);
+          router.push({
+            pathname: "/stripepayment",
+            query: data,
+          });
+        });
+    }
+  };
+
   return (
     <>
       <div className="w-full h-full px-5 sm:px-20 flex justify-around items-center flex-col sm:flex-row">
@@ -77,6 +108,7 @@ const AdvanceBooking = ({ props, slotData }) => {
             PREGNANCY THERAPY / SELECT DATE AND TIME
           </p>
           <Calendar
+            calendarType="ISO 8601"
             onChange={handleDateChange}
             value={selectedDate}
             formatShortWeekday={formatShortWeekday}
@@ -89,9 +121,9 @@ const AdvanceBooking = ({ props, slotData }) => {
               availableTime.map((el, index) => {
                 if (selectedTime === el)
                   return (
-                    <>
+                    <React.Fragment key={index}>
                       <button
-                        className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-4 sm:gap-6 py-1 w-[25%] outline-none focus:outline-none  ease-linear transition-all duration-150"
+                        className="flex justify-between items-center bg-mahogany border-mahogany text-white border-2 hover:bg-mahogany hover:text-white active:bg-mahogany text-xs px-4 sm:gap-6 py-1 w-[25%] outline-none focus:outline-none ease-linear transition-all duration-150"
                         type="button"
                         onClick={() => {
                           timeOnClickHandler(el);
@@ -101,13 +133,13 @@ const AdvanceBooking = ({ props, slotData }) => {
                           {el}
                         </span>
                       </button>
-                    </>
+                    </React.Fragment>
                   );
                 else {
                   return (
-                    <>
+                    <React.Fragment key={index}>
                       <button
-                        className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2  hover:bg-mahogany hover:text-white active:bg-mahogany  text-xs  px-4 gap-6 py-1 w-[25%] outline-none focus:outline-none  ease-linear transition-all duration-150"
+                        className="flex justify-between items-center bg-paleIvory border-mahogany text-mahogany border-2 hover:bg-mahogany hover:text-white active:bg-mahogany text-xs px-4 gap-6 py-1 w-[25%] outline-none focus:outline-none ease-linear transition-all duration-150"
                         type="button"
                         onClick={() => {
                           timeOnClickHandler(el);
@@ -117,7 +149,7 @@ const AdvanceBooking = ({ props, slotData }) => {
                           {el}
                         </span>
                       </button>
-                    </>
+                    </React.Fragment>
                   );
                 }
               })}

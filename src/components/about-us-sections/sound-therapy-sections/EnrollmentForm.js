@@ -2,6 +2,7 @@ import React from "react";
 import InputTextField from "../../common/InputTextField";
 import { useState } from "react";
 import CallUs from "@/components/common/CallUs";
+import postHandler from "@/request-handlers/postHandler";
 const EnrollmentForm = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN;
 

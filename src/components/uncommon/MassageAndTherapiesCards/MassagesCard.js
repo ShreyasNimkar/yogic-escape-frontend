@@ -8,10 +8,9 @@ const MassagesCard = ({ props, id }) => {
   const router = useRouter();
   const onClickHandler = () => {
     router.push({
-      pathname: "/product",
+      pathname: "/massages/[slug]",
       query: {
-        id: id,
-        ...props,
+        slug: id,
       },
     });
   };
@@ -19,7 +18,7 @@ const MassagesCard = ({ props, id }) => {
 
   return (
     <>
-      <div className="h-[30vh] w-[45vw] sm:w-[25vw] sm:h-[60vh] ">
+      <div className="h-max w-[45vw] sm:w-[25vw] sm:h-max shadow-md ">
         <div className="h-max overflow-hidden">
           <Image
             // src={`/c`}
@@ -37,7 +36,7 @@ const MassagesCard = ({ props, id }) => {
               {props.description}
             </p>
             <div className="flex justify-around items-center text-sm">
-              {props.time}
+              {props.time}&nbsp;
               <svg
                 width="8"
                 height="9"

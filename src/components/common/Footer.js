@@ -45,7 +45,7 @@ const Footer = () => {
             <div className="text-xs text-charcoal mb-1 cursor-pointer hover:underline">
               Business Yoga
             </div>
-            <div className="text-xs text-charcoal mb-1 cursor-pointer hover:underline">
+            <div className="text-xs text-charcoal cursor-pointer hover:underline">
               Space Rentals
             </div>
           </div>

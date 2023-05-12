@@ -9,9 +9,9 @@ const PodcastsList = ({ props }) => {
         {props &&
           props.map((el, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 <PodcastCard el={el} index={index} />
-              </>
+              </React.Fragment>
             );
           })}
       </div>

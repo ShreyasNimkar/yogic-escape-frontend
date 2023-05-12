@@ -7,7 +7,7 @@ const Payment = ({ props }) => {
   return (
     <>
       <Header />
-      {props && <PaymentTab props={props} />}
+      {props && Object.keys(props).length > 0 && <PaymentTab props={props} />}
       <Footer />
     </>
   );

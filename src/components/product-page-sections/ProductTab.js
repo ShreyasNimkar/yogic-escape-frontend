@@ -6,10 +6,14 @@ const ProductTab = ({ props }) => {
   const onClickHandler = () => {
     router.push({
       pathname: "/payment",
-      query: props,
+      query: { massageId: props.id },
     });
   };
-
+  console.log(props);
+  if (!props || !props.attributes) {
+    return null; // or render a loading spinner, placeholder, or any other content
+  }
+  const { name, description, time } = props.attributes;
   return (
     <>
       <div className="h-max py-10 w-full flex justify-around items-center bg-paleIvory">
@@ -29,13 +33,11 @@ const ProductTab = ({ props }) => {
               <div className="h-max w-full sm:w-full">
                 <p className="text-sm pb-2">Whats here ???/</p>
                 <p className="text-xl pb-3 font-semibold  tracking-widest">
-                  {props.name}
+                  {name}
                 </p>
-                <p className="text-xs pb-3 text-textGray">
-                  {props.description}
-                </p>
+                <p className="text-xs pb-3 text-textGray">{description}</p>
                 <p className="text-sm pb-3">
-                  {props.time} <span>ads</span> 10 Reviews
+                  {time} <span>ads</span> 10 Reviews
                 </p>
                 <p className="text-xl text-mahogany font-semibold">80E</p>
                 <p className="w-max h-max border-t-2 border-[#C4C4C4] pt-1 text-sm">

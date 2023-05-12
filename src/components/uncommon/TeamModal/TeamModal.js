@@ -22,14 +22,14 @@ const TeamModal = ({
       className="fixed inset-0 bg-black bg-opacity-[0.2] backdrop-blur-sm flex items-center justify-center "
     >
       <div className=" w-[90%] h-[95vh] sm:h-[75vh] py-4 sm:py-16 bg-paleIvory flex justify-around items-center ">
-        <div className="w-[8%] h-full  flex justify-around items-center flex-col p-1">
+        <div className="w-[8%] h-full  flex justify-around  items-center flex-col p-1">
           <svg
             width="25"
             height="25"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="cursor-pointer"
+            className="cursor-pointer  hover:fill-black"
             onClick={() => {
               const newId = modalData.id - 1;
               const el = memberData[newId - 1];

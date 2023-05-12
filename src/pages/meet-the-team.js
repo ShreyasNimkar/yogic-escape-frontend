@@ -5,9 +5,9 @@ import React from "react";
 
 const meetTheTeam = () => {
   return (
-    <div>
+    <>
       <MeetTheTeam />
-    </div>
+    </>
   );
 };
 

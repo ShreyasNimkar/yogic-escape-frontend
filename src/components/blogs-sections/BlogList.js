@@ -28,9 +28,9 @@ const BlogList = () => {
           {blogData &&
             blogData.map((el, index) => {
               return (
-                <>
+                <React.Fragment key={index}>
                   <BlogCard el={el} />
-                </>
+                </React.Fragment>
               );
             })}
         </div>

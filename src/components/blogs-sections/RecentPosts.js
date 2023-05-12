@@ -7,11 +7,11 @@ const RecentPosts = ({ sortedBlogs }) => {
       <Title value={"RECENT POSTS"} color={"paleIvory"} />
       <div className="hidden sm:flex w-full h-full  flex-col bg-paleIvory pb-10  justify-around items-center px-10 sm:px-36">
         {sortedBlogs &&
-          sortedBlogs.map((el, index) => {
+          sortedBlogs.map((el) => {
             return (
-              <>
+              <React.Fragment key={el.id}>
                 <BlogCard el={el} />
-              </>
+              </React.Fragment>
             );
           })}
       </div>

@@ -13,11 +13,11 @@ const TherapiesCard = ({ props }) => {
   console.log(props);
   return (
     <>
-      <div className="h-[30vh]  w-[45vw] sm:w-[25vw] sm:h-[50vh] ">
-        <div className="h-[40%]  overflow-hidden">
+      <div className="h-max  w-[45vw] sm:w-[25vw] sm:h-max shadow-md ">
+        <div className="h-max  overflow-hidden">
           <Image
-            // src={`/c`}
-            // src={`http://${domain}${props.image.data.attributes.url}`}
+            src={`/chakra.svg`}
+            // src={`http://${domain}${props.attributes.therapy_type.data.attributes.url}`}
             alt="Team"
             height={10000}
             width={10000}

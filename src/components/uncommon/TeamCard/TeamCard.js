@@ -30,7 +30,7 @@ const TeamCard = ({ el, id, onClickFunc, setModalDataFunc }) => {
           className="h-[45vh] w-full object-cover"
         />
         <div className="text-xl mt-2 text-center">{el.attributes.Name}</div>
-        <div className="text-sm text-center text-mahogany italic py-1">
+        <div className="text-xs text-center text-mahogany italic py-1">
           {el.attributes.Designation}
         </div>
         <div className="text-sm not-italic text-dimGray text-center ">
