@@ -5,11 +5,13 @@ import MassagesHeroSection from "../therapies-and-massages-sections/MassagesHero
 import MassagesList from "../therapies-and-massages-sections/MassagesList";
 import MassagesMoreForYou from "../therapies-and-massages-sections/MassagesMoreForYou";
 import CallUs from "../common/CallUs";
+
 const Massages = () => {
   return (
     <>
       <Header />
       <MassagesHeroSection />
+
       <MassagesList />
       <MassagesMoreForYou />
       <CallUs />

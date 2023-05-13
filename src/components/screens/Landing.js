@@ -11,11 +11,12 @@ import UpcomingEvents from "@/components/landing-page-sections/UpcomingEvents";
 import SectionDivider from "@/components/common/SectionDivider";
 import ClassesSection from "@/components/landing-page-sections/ClassesSection";
 import MindBodySoul from "@/components/landing-page-sections/MindBodySoul";
-import Footer from "@/components/common/Footer";
+
 import NewsLetter from "@/components/landing-page-sections/NewsLetter";
 import MeetTheTeam from "@/components/landing-page-sections/MeetTheTeam";
 import PostHeroSection from "@/components/landing-page-sections/PostHeroSection";
 import BeInTouch from "@/components/landing-page-sections/BeInTouch";
+import Footer from "../common/Footer";
 const Landing = () => {
   return (
     <>

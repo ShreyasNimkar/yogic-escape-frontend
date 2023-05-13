@@ -19,10 +19,10 @@ export default function CheckoutForm() {
     if (!stripe) {
       return;
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    const clientSecret = urlParams.get("clientSecret");
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
+    // console.log("Client Secret:", clientSecret);
 
     if (!clientSecret) {
       return;
